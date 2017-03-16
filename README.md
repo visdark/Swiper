@@ -2,12 +2,16 @@
 [![Build Status](https://travis-ci.org/nolimits4web/Swiper.svg?branch=master)](https://travis-ci.org/nolimits4web/Swiper)
 [![devDependency Status](https://david-dm.org/nolimits4web/swiper/dev-status.svg)](https://david-dm.org/nolimits4web/swiper#info=devDependencies)
 
-Swiper
+Swiper 滑动组件
 ==========
 
-Swiper - is the free and most modern mobile touch slider with hardware accelerated transitions and amazing native behavior. It is intended to be used in mobile websites, mobile web apps, and mobile native/hybrid apps. Designed mostly for iOS, but also works great on latest Android, Windows Phone 8 and modern Desktop browsers
+Swiper常用于移动端网站的内容触摸滑动
 
-Swiper is not compatible with all platforms, it is a modern touch slider which is focused only on modern apps/platforms to bring the best experience and simplicity.
+Swiper是纯javascript打造的滑动特效插件，面向手机、平板电脑等移动终端。
+
+Swiper能实现触屏焦点图、触屏Tab切换、触屏多图切换等常用效果。
+Swiper开源、免费、稳定、使用简单、功能强大，是架构移动终端网站的重要选择！
+
 
 # Getting Started
   * [Getting Started Guide](http://www.idangero.us/swiper/get-started/)
