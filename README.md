@@ -1,4 +1,4 @@
-[![Join the chat at https://gitter.im/nolimits4web/Swiper](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nolimits4web/Swiper)
+[![加入聊天 https://gitter.im/nolimits4web/Swiper](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nolimits4web/Swiper)
 [![Build Status](https://travis-ci.org/nolimits4web/Swiper.svg?branch=master)](https://travis-ci.org/nolimits4web/Swiper)
 [![devDependency Status](https://david-dm.org/nolimits4web/swiper/dev-status.svg)](https://david-dm.org/nolimits4web/swiper#info=devDependencies)
 
@@ -13,11 +13,11 @@ Swiper能实现触屏焦点图、触屏Tab切换、触屏多图切换等常用�
 Swiper开源、免费、稳定、使用简单、功能强大，是架构移动终端网站的重要选择！
 
 
-# Getting Started
-  * [Getting Started Guide](http://www.idangero.us/swiper/get-started/)
+# 入门
+  * [入门指南](http://www.idangero.us/swiper/get-started/)
   * [API](http://www.idangero.us/swiper/api/)
-  * [Demos](http://www.idangero.us/swiper/demos/)
-  * [Forum](http://www.idangero.us/swiper/forum/)
+  * [示例](http://www.idangero.us/swiper/demos/)
+  * [论坛](http://www.idangero.us/swiper/forum/)
 
 # Dist / Build
 
