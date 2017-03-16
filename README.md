@@ -1,4 +1,4 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 
 
 [![加入聊天 https://gitter.im/nolimits4web/Swiper](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nolimits4web/Swiper)
@@ -17,6 +17,8 @@ Swiper开源、免费、稳定、使用简单、功能强大，是架构移动�
 
 
 # 入门
++ [ 入门指南 ](http://www.idangero.us/swiper/get-started/) 
++ [ API ](http://www.idangero.us/swiper/api/)  
 
   * [ 入门指南 ](http://www.idangero.us/swiper/get-started/) 
   * [ API ](http://www.idangero.us/swiper/api/)  
