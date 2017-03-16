@@ -18,12 +18,9 @@ Swiper开源、免费、稳定、使用简单、功能强大，是架构移动�
 
 # 入门
 + [ 入门指南 ](http://www.idangero.us/swiper/get-started/) 
-+ [ API ](http://www.idangero.us/swiper/api/)  
-
-  * [ 入门指南 ](http://www.idangero.us/swiper/get-started/) 
-  * [ API ](http://www.idangero.us/swiper/api/)  
-  * [ 示例 ](http://www.idangero.us/swiper/demos/)
-  * [ 论坛 ](http://www.idangero.us/swiper/forum/)
++ [ API ](http://www.idangero.us/swiper/api/)  
++ [ 示例 ](http://www.idangero.us/swiper/demos/)
++ [ 论坛 ](http://www.idangero.us/swiper/forum/)
 
 # Dist / Build
 
