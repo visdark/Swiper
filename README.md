@@ -27,47 +27,48 @@ Swiper开源、免费、稳定、使用简单、功能强大，是架构移动�
 
 用于扩展的使用(js 和 css) `dist/` 用于开发的使用 `build/`
 
-### Build
+### 构建
 
-Swiper uses `gulp` to build a development (build) and dist versions.
+构建使用的是 流 工具  `gulp`
 
-First you need to have `gulp-cli` which you should install globally.
+首先你得在你的电脑上没安装 `gulp-cli`
 
 ```
 $ npm install --global gulp
 ```
 
-Then install all dependencies, in repo's root:
+然后安装构建环境
 
 ```
 $ npm install
 ```
 
-And build development version of Swiper:
+构建最新版本的 Swiper
+
 ```
 $ gulp build
 ```
 
-The result is available in `build/` folder.
+这样就完成了构建的文档 `build/`
 
-### Dist/Release
+### 编译
 
-After you have made build:
+然后你可以这样编译
 
 ```
 $ gulp dist
 ```
 
-Distributable version will available in `dist/` folder.
+最后生成的文件在 `dist/`
 
-# Contributing
+# 资料
 
-All changes should be committed to `src/` files. Swiper uses LESS for CSS compliations, and concatenated JS files (look at gulpfile.js for concat files order)
+所有的构建资料在 `src/` ，在这里你可以看到最基础的子件。
 
 Swiper 2.x.x
 ==========
 
-If you still using Swiper 2.x.x or you need old browsers support, you may find it in [Swiper2 Branch](https://github.com/nolimits4web/Swiper/tree/Swiper2)
+如果你需要老的版本 请关注以下链接 [Swiper2 Branch](https://github.com/nolimits4web/Swiper/tree/Swiper2)
 * [Download Latest Swiper 2.7.6](https://github.com/nolimits4web/Swiper/archive/v2.7.6.zip)
 * [Source Files](https://github.com/nolimits4web/Swiper/tree/Swiper2/src)
 * [API](https://github.com/nolimits4web/Swiper/blob/Swiper2/API.md)
