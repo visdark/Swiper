@@ -31,7 +31,7 @@ Swiper开源、免费、稳定、使用简单、功能强大，是架构移动�
 
 构建使用的是 流 工具  `gulp`
 
-首先你得在你的电脑上没安装 `gulp-cli`
+首先你得在你的电脑上安装 `gulp-cli`
 
 ```
 $ npm install --global gulp
@@ -53,7 +53,7 @@ $ gulp build
 
 ### 编译
 
-然后你可以这样编译  
+然后你可以这样编译
 
 ```
 $ gulp dist
