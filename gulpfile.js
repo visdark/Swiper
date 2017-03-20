@@ -143,31 +143,31 @@
                 ' * ',
                 ' * <%= pkg.homepage %>',
                 ' * ',
-                ' * Copyright <%= date.year %>, <%= pkg.author %>',
+                ' * 版权所有 <%= date.year %>, <%= pkg.author %>',
                 ' * The iDangero.us',
                 ' * http://www.idangero.us/',
                 ' * ',
-                ' * Licensed under <%= pkg.license.join(" & ") %>',
+                ' * 许可: <%= pkg.license.join(" & ") %>',
                 ' * ',
-                ' * Released on: <%= date.month %> <%= date.day %>, <%= date.year %>',
+                ' * 发布时间: <%= date.month %> <%= date.day %>, <%= date.year %>',
                 ' */',
                 ''].join('\n'),
             customBanner: [
                 '/**',
-                ' * Swiper <%= pkg.version %> - Custom Build',
+                ' * Swiper <%= pkg.version %> - visdark整理发布',
                 ' * <%= pkg.description %>',
                 ' * ',
-                ' * Included modules: <%= modulesList %>',
+                ' * 包涵的模块: <%= modulesList %>',
                 ' * ',
                 ' * <%= pkg.homepage %>',
                 ' * ',
-                ' * Copyright <%= date.year %>, <%= pkg.author %>',
+                ' * 版权所有 <%= date.year %>, <%= pkg.author %>',
                 ' * The iDangero.us',
                 ' * http://www.idangero.us/',
                 ' * ',
-                ' * Licensed under <%= pkg.license.join(" & ") %>',
+                ' * 许可: <%= pkg.license.join(" & ") %>',
                 ' * ',
-                ' * Released on: <%= date.month %> <%= date.day %>, <%= date.year %>',
+                ' * 发布时间: <%= date.month %> <%= date.day %>, <%= date.year %>',
                 ' */',
                 ''].join('\n'),
             date: {
@@ -183,7 +183,7 @@
         if (['wrap-start.js', 'wrap-start-umd.js', 'wrap-end.js', 'wrap-end-umd.js', 'amd.js'].indexOf(filename) !== -1) {
             addIndent = '';
         }
-        if (filename === 'swiper-intro.js' || filename === 'swiper-intro-f7.js' || filename === 'swiper-outro.js' || filename === 'dom.js' || filename === 'get-dom-lib.js' || filename === 'get-jquery.js' || filename === 'dom-plugins.js' || filename === 'swiper-proto.js') addIndent = '    ';
+        if (filename === 'dom.js' ||filename === 'dom-plugins.js' || filename === 'swiper-intro.js' ||  filename === 'swiper-intro-f7.js' || filename === 'swiper-outro.js' || filename === 'get-dom-lib.js' || filename === 'get-jquery.js' || filename === 'swiper-proto.js') addIndent = '    ';
         if (minusIndent) {
             addIndent = addIndent.substring(4);
         }
@@ -318,7 +318,7 @@
     });
 
     /* =================================
-    Custom Build
+    定制构建
     ================================= */
     gulp.task('custom', function () {
         var modules = process.argv.slice(3);
@@ -362,7 +362,7 @@
             if (customLessList.indexOf(modulesLess[i]) < 0) customLessList.push(modulesLess[i]);
         }
 
-        // JS
+        // 构建 JS
         gulp.src(customJsList)
             .pipe(tap(function (file, t){
                 addJSIndent (file, t);
@@ -380,7 +380,7 @@
             }))
             .pipe(gulp.dest(paths.custom.scripts));
 
-        // CSSes
+        // 构建 CSS
         gulp.src(customLessList)
             .pipe(concat(swiper.filename + '.custom.less'))
             .pipe(less({

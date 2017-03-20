@@ -1,41 +1,45 @@
 /**
  * Swiper 3.4.2
- * Most modern mobile touch slider and framework with hardware accelerated transitions
+ * 最好用的滑动插件
  * 
  * http://www.idangero.us/swiper/
  * 
- * Copyright 2017, Vladimir Kharlampidi
+ * 版权所有 2017, Vladimir Kharlampidi 整理：visdark
  * The iDangero.us
  * http://www.idangero.us/
  * 
- * Licensed under MIT
+ * 许可: MIT
  * 
- * Released on: March 10, 2017
+ * 发布时间: March 20, 2017
  */
-(function () {
-    'use strict';
-    var $;
+        (function () {
+            'use strict';
+            var $;
+        
 
-    /*===========================
-    Swiper
-    ===========================*/
-    var Swiper = function (container, params) {
-        if (!(this instanceof Swiper)) return new Swiper(container, params);
-    
+        /*===========================
+        Swiper 主插件开始
+        ===========================*/
+        
+        var Swiper = function (container, params) {
+            if (!(this instanceof Swiper)) return new Swiper(container, params);
+        
 
+        // 核心代码
+        
         var defaults = {
             direction: 'horizontal',
             touchEventsTarget: 'container',
             initialSlide: 0,
             speed: 300,
-            // autoplay
+            // 自动播放
             autoplay: false,
             autoplayDisableOnInteraction: true,
             autoplayStopOnLast: false,
-            // To support iOS's swipe-to-go-back gesture (when being used in-app, with UIWebView).
+            // 支持 iOS's swipe-to-go-back 手势 (当在应用内使用时和 UIWebView).
             iOSEdgeSwipeDetection: false,
             iOSEdgeSwipeThreshold: 20,
-            // Free mode
+            // 自由模式
             freeMode: false,
             freeModeMomentum: true,
             freeModeMomentumRatio: 1,
@@ -44,13 +48,13 @@
             freeModeMomentumVelocityRatio: 1,
             freeModeSticky: false,
             freeModeMinimumVelocity: 0.02,
-            // Autoheight
+            // 自动高
             autoHeight: false,
-            // Set wrapper width
+            // 设置容器宽度
             setWrapperSize: false,
             // Virtual Translate
             virtualTranslate: false,
-            // Effects
+            // 效果
             effect: 'slide', // 'slide' or 'fade' or 'cube' or 'coverflow' or 'flip'
             coverflow: {
                 rotate: 50,
@@ -72,19 +76,19 @@
             fade: {
                 crossFade: false
             },
-            // Parallax
+            // 视觉差
             parallax: false,
-            // Zoom
+            // Zoom 画廊
             zoom: false,
             zoomMax: 3,
             zoomMin: 1,
             zoomToggle: true,
-            // Scrollbar
+            // 滚动条
             scrollbar: null,
             scrollbarHide: true,
             scrollbarDraggable: false,
             scrollbarSnapOnRelease: false,
-            // Keyboard Mousewheel
+            // 键盘鼠标
             keyboardControl: false,
             mousewheelControl: false,
             mousewheelReleaseOnEdges: false,
@@ -92,16 +96,16 @@
             mousewheelForceToAxis: false,
             mousewheelSensitivity: 1,
             mousewheelEventsTarged: 'container',
-            // Hash Navigation
+            // 导航
             hashnav: false,
             hashnavWatchState: false,
-            // History
+            // 历史
             history: false,
-            // Commong Nav State
+            // Commong 导航状态
             replaceState: false,
             // Breakpoints
             breakpoints: undefined,
-            // Slides grid
+            // 网格
             spaceBetween: 0,
             slidesPerView: 1,
             slidesPerColumn: 1,
@@ -112,7 +116,7 @@
             slidesOffsetAfter: 0, // in px
             // Round length
             roundLengths: false,
-            // Touches
+            // 触摸
             touchRatio: 1,
             touchAngle: 45,
             simulateTouch: true,
@@ -127,7 +131,7 @@
             touchReleaseOnEdges: false,
             // Unique Navigation Elements
             uniqueNavElements: true,
-            // Pagination
+            // 圆点标记
             pagination: null,
             paginationElement: 'span',
             paginationClickable: false,
@@ -140,7 +144,7 @@
             // Resistance
             resistance: true,
             resistanceRatio: 0.85,
-            // Next/prev buttons
+            // 左右指示按钮
             nextButton: null,
             prevButton: null,
             // Progress
@@ -157,14 +161,14 @@
             lazyLoadingInPrevNext: false,
             lazyLoadingInPrevNextAmount: 1,
             lazyLoadingOnTransitionStart: false,
-            // Images
+            // 图片
             preloadImages: true,
             updateOnImagesReady: true,
-            // loop
+            // 循环
             loop: false,
             loopAdditionalSlides: 0,
             loopedSlides: null,
-            // Control
+            // 控制
             control: undefined,
             controlInverse: false,
             controlBy: 'slide', //or 'container'
@@ -288,7 +292,7 @@
         // Classname
         s.classNames = [];
         /*=========================
-          Dom Library and plugins
+          Dom 库和插件
           ===========================*/
         if (typeof $ !== 'undefined' && typeof Dom7 !== 'undefined'){
             $ = Dom7;
@@ -444,7 +448,7 @@
             }
             s.paginationContainer.addClass(s.params.paginationModifierClass + s.params.paginationType);
         }
-        // Next/Prev Buttons
+        // 左右按钮
         if (s.params.nextButton || s.params.prevButton) {
             if (s.params.nextButton) {
                 s.nextButton = $(s.params.nextButton);
@@ -2506,7 +2510,7 @@
         
 
         /*=========================
-          Effects
+          效果
           ===========================*/
         s.effects = {
             fade: {
@@ -2784,7 +2788,7 @@
         
 
         /*=========================
-          Images Lazy Loading
+          图片延迟加载
           ===========================*/
         s.lazy = {
             initialImageLoaded: false,
@@ -2911,7 +2915,7 @@
         
 
         /*=========================
-          Scrollbar
+          滚动条
           ===========================*/
         s.scrollbar = {
             isTouched: false,
@@ -3098,7 +3102,7 @@
         
 
         /*=========================
-          Controller
+         控制器
           ===========================*/
         s.controller = {
             LinearSpline: function (x, y) {
@@ -3215,7 +3219,7 @@
         
 
         /*=========================
-          Hash Navigation
+          导航
           ===========================*/
         s.hashnav = {
             onHashCange: function (e, a) {
@@ -3263,7 +3267,7 @@
         
 
         /*=========================
-          History Api with fallback to Hashnav
+          历史 Api 和 撤销
           ===========================*/
         s.history = {
             init: function () {
@@ -3331,7 +3335,7 @@
         
 
         /*=========================
-          Keyboard Control
+          键盘控制器
           ===========================*/
         function handleKeyboard(e) {
             if (e.originalEvent) e = e.originalEvent; //jquery fix
@@ -3410,7 +3414,7 @@
         
 
         /*=========================
-          Mousewheel Control
+          鼠标控制器
           ===========================*/
         s.mousewheel = {
             event: false,
@@ -3725,7 +3729,7 @@
         
 
         /*=========================
-          Parallax
+          视觉差
           ===========================*/
         function setParallaxTransform(el, progress) {
             el = $(el);
@@ -3792,7 +3796,7 @@
         
 
         /*=========================
-          Zoom
+          Zoom 画廊
           ===========================*/
         s.zoom = {
             // "Global" Props
@@ -4156,7 +4160,7 @@
         
 
         /*=========================
-          Plugins API. Collect all and init all plugins
+          加入所有插件
           ===========================*/
         s._plugins = [];
         for (var plugin in s.plugins) {
@@ -4174,7 +4178,7 @@
         
 
         /*=========================
-          Events/Callbacks/Plugins Emitter
+          事件/回调/插件
           ===========================*/
         function normalizeEventName (eventName) {
             if (eventName.indexOf('on') !== 0) {
@@ -4236,7 +4240,7 @@
         };
         
 
-        // Accessibility tools
+        // 协助工具
         s.a11y = {
             makeFocusable: function ($el) {
                 $el.attr('tabIndex', '0');
@@ -4327,7 +4331,7 @@
         
 
         /*=========================
-          Init/Destroy
+          初始化/删除
           ===========================*/
         s.init = function () {
             if (s.params.loop) s.createLoop();
@@ -4483,872 +4487,874 @@
         s.init();
         
 
-    
-        // Return swiper instance
-        return s;
-    };
-    
+        
+            // 返回 swiper 例子
+            return s;
+        };
+        
 
-    /*==================================================
-        Prototype
-    ====================================================*/
-    Swiper.prototype = {
-        isSafari: (function () {
-            var ua = window.navigator.userAgent.toLowerCase();
-            return (ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0);
-        })(),
-        isUiWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window.navigator.userAgent),
-        isArray: function (arr) {
-            return Object.prototype.toString.apply(arr) === '[object Array]';
-        },
         /*==================================================
-        Browser
+            原形
         ====================================================*/
-        browser: {
-            ie: window.navigator.pointerEnabled || window.navigator.msPointerEnabled,
-            ieTouch: (window.navigator.msPointerEnabled && window.navigator.msMaxTouchPoints > 1) || (window.navigator.pointerEnabled && window.navigator.maxTouchPoints > 1),
-            lteIE9: (function() {
-                // create temporary DIV
-                var div = document.createElement('div');
-                // add content to tmp DIV which is wrapped into the IE HTML conditional statement
-                div.innerHTML = '<!--[if lte IE 9]><i></i><![endif]-->';
-                // return true / false value based on what will browser render
-                return div.getElementsByTagName('i').length === 1;
-            })()
-        },
-        /*==================================================
-        Devices
-        ====================================================*/
-        device: (function () {
-            var ua = window.navigator.userAgent;
-            var android = ua.match(/(Android);?[\s\/]+([\d.]+)?/);
-            var ipad = ua.match(/(iPad).*OS\s([\d_]+)/);
-            var ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/);
-            var iphone = !ipad && ua.match(/(iPhone\sOS|iOS)\s([\d_]+)/);
-            return {
-                ios: ipad || iphone || ipod,
-                android: android
+        Swiper.prototype = {
+            isSafari: (function () {
+                var ua = window.navigator.userAgent.toLowerCase();
+                return (ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0);
+            })(),
+            isUiWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window.navigator.userAgent),
+            isArray: function (arr) {
+                return Object.prototype.toString.apply(arr) === '[object Array]';
+            },
+            /*==================================================
+            浏览器
+            ====================================================*/
+            browser: {
+                ie: window.navigator.pointerEnabled || window.navigator.msPointerEnabled,
+                ieTouch: (window.navigator.msPointerEnabled && window.navigator.msMaxTouchPoints > 1) || (window.navigator.pointerEnabled && window.navigator.maxTouchPoints > 1),
+                lteIE9: (function() {
+                    // create temporary DIV
+                    var div = document.createElement('div');
+                    // add content to tmp DIV which is wrapped into the IE HTML conditional statement
+                    div.innerHTML = '<!--[if lte IE 9]><i></i><![endif]-->';
+                    // return true / false value based on what will browser render
+                    return div.getElementsByTagName('i').length === 1;
+                })()
+            },
+            /*==================================================
+            Devices
+            ====================================================*/
+            device: (function () {
+                var ua = window.navigator.userAgent;
+                var android = ua.match(/(Android);?[\s\/]+([\d.]+)?/);
+                var ipad = ua.match(/(iPad).*OS\s([\d_]+)/);
+                var ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/);
+                var iphone = !ipad && ua.match(/(iPhone\sOS|iOS)\s([\d_]+)/);
+                return {
+                    ios: ipad || iphone || ipod,
+                    android: android
+                };
+            })(),
+            /*==================================================
+            Feature Detection
+            ====================================================*/
+            support: {
+                touch : (window.Modernizr && Modernizr.touch === true) || (function () {
+                    return !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
+                })(),
+        
+                transforms3d : (window.Modernizr && Modernizr.csstransforms3d === true) || (function () {
+                    var div = document.createElement('div').style;
+                    return ('webkitPerspective' in div || 'MozPerspective' in div || 'OPerspective' in div || 'MsPerspective' in div || 'perspective' in div);
+                })(),
+        
+                flexbox: (function () {
+                    var div = document.createElement('div').style;
+                    var styles = ('alignItems webkitAlignItems webkitBoxAlign msFlexAlign mozBoxAlign webkitFlexDirection msFlexDirection mozBoxDirection mozBoxOrient webkitBoxDirection webkitBoxOrient').split(' ');
+                    for (var i = 0; i < styles.length; i++) {
+                        if (styles[i] in div) return true;
+                    }
+                })(),
+        
+                observer: (function () {
+                    return ('MutationObserver' in window || 'WebkitMutationObserver' in window);
+                })(),
+        
+                passiveListener: (function () {
+                    var supportsPassive = false;
+                    try {
+                        var opts = Object.defineProperty({}, 'passive', {
+                            get: function() {
+                                supportsPassive = true;
+                            }
+                        });
+                        window.addEventListener('testPassiveListener', null, opts);
+                    } catch (e) {}
+                    return supportsPassive;
+                })(),
+        
+                gestures: (function () {
+                    return 'ongesturestart' in window;
+                })()
+            },
+            /*==================================================
+            Plugins
+            ====================================================*/
+            plugins: {}
+        };
+        
+
+        /*===========================
+        Dom7 相关
+        ===========================*/
+        var Dom7 = (function () {
+            var Dom7 = function (arr) {
+                var _this = this, i = 0;
+                // Create array-like object
+                for (i = 0; i < arr.length; i++) {
+                    _this[i] = arr[i];
+                }
+                _this.length = arr.length;
+                // Return collection with methods
+                return this;
             };
-        })(),
-        /*==================================================
-        Feature Detection
-        ====================================================*/
-        support: {
-            touch : (window.Modernizr && Modernizr.touch === true) || (function () {
-                return !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
-            })(),
-    
-            transforms3d : (window.Modernizr && Modernizr.csstransforms3d === true) || (function () {
-                var div = document.createElement('div').style;
-                return ('webkitPerspective' in div || 'MozPerspective' in div || 'OPerspective' in div || 'MsPerspective' in div || 'perspective' in div);
-            })(),
-    
-            flexbox: (function () {
-                var div = document.createElement('div').style;
-                var styles = ('alignItems webkitAlignItems webkitBoxAlign msFlexAlign mozBoxAlign webkitFlexDirection msFlexDirection mozBoxDirection mozBoxOrient webkitBoxDirection webkitBoxOrient').split(' ');
-                for (var i = 0; i < styles.length; i++) {
-                    if (styles[i] in div) return true;
-                }
-            })(),
-    
-            observer: (function () {
-                return ('MutationObserver' in window || 'WebkitMutationObserver' in window);
-            })(),
-    
-            passiveListener: (function () {
-                var supportsPassive = false;
-                try {
-                    var opts = Object.defineProperty({}, 'passive', {
-                        get: function() {
-                            supportsPassive = true;
-                        }
-                    });
-                    window.addEventListener('testPassiveListener', null, opts);
-                } catch (e) {}
-                return supportsPassive;
-            })(),
-    
-            gestures: (function () {
-                return 'ongesturestart' in window;
-            })()
-        },
-        /*==================================================
-        Plugins
-        ====================================================*/
-        plugins: {}
-    };
-    
-
-    /*===========================
-    Dom7 Library
-    ===========================*/
-    var Dom7 = (function () {
-        var Dom7 = function (arr) {
-            var _this = this, i = 0;
-            // Create array-like object
-            for (i = 0; i < arr.length; i++) {
-                _this[i] = arr[i];
-            }
-            _this.length = arr.length;
-            // Return collection with methods
-            return this;
-        };
-        var $ = function (selector, context) {
-            var arr = [], i = 0;
-            if (selector && !context) {
-                if (selector instanceof Dom7) {
-                    return selector;
-                }
-            }
-            if (selector) {
-                // String
-                if (typeof selector === 'string') {
-                    var els, tempParent, html = selector.trim();
-                    if (html.indexOf('<') >= 0 && html.indexOf('>') >= 0) {
-                        var toCreate = 'div';
-                        if (html.indexOf('<li') === 0) toCreate = 'ul';
-                        if (html.indexOf('<tr') === 0) toCreate = 'tbody';
-                        if (html.indexOf('<td') === 0 || html.indexOf('<th') === 0) toCreate = 'tr';
-                        if (html.indexOf('<tbody') === 0) toCreate = 'table';
-                        if (html.indexOf('<option') === 0) toCreate = 'select';
-                        tempParent = document.createElement(toCreate);
-                        tempParent.innerHTML = selector;
-                        for (i = 0; i < tempParent.childNodes.length; i++) {
-                            arr.push(tempParent.childNodes[i]);
-                        }
+            var $ = function (selector, context) {
+                var arr = [], i = 0;
+                if (selector && !context) {
+                    if (selector instanceof Dom7) {
+                        return selector;
                     }
-                    else {
-                        if (!context && selector[0] === '#' && !selector.match(/[ .<>:~]/)) {
-                            // Pure ID selector
-                            els = [document.getElementById(selector.split('#')[1])];
+                }
+                if (selector) {
+                    // String
+                    if (typeof selector === 'string') {
+                        var els, tempParent, html = selector.trim();
+                        if (html.indexOf('<') >= 0 && html.indexOf('>') >= 0) {
+                            var toCreate = 'div';
+                            if (html.indexOf('<li') === 0) toCreate = 'ul';
+                            if (html.indexOf('<tr') === 0) toCreate = 'tbody';
+                            if (html.indexOf('<td') === 0 || html.indexOf('<th') === 0) toCreate = 'tr';
+                            if (html.indexOf('<tbody') === 0) toCreate = 'table';
+                            if (html.indexOf('<option') === 0) toCreate = 'select';
+                            tempParent = document.createElement(toCreate);
+                            tempParent.innerHTML = selector;
+                            for (i = 0; i < tempParent.childNodes.length; i++) {
+                                arr.push(tempParent.childNodes[i]);
+                            }
                         }
                         else {
-                            // Other selectors
-                            els = (context || document).querySelectorAll(selector);
-                        }
-                        for (i = 0; i < els.length; i++) {
-                            if (els[i]) arr.push(els[i]);
-                        }
-                    }
-                }
-                // Node/element
-                else if (selector.nodeType || selector === window || selector === document) {
-                    arr.push(selector);
-                }
-                //Array of elements or instance of Dom
-                else if (selector.length > 0 && selector[0].nodeType) {
-                    for (i = 0; i < selector.length; i++) {
-                        arr.push(selector[i]);
-                    }
-                }
-            }
-            return new Dom7(arr);
-        };
-        Dom7.prototype = {
-            // Classes and attriutes
-            addClass: function (className) {
-                if (typeof className === 'undefined') {
-                    return this;
-                }
-                var classes = className.split(' ');
-                for (var i = 0; i < classes.length; i++) {
-                    for (var j = 0; j < this.length; j++) {
-                        this[j].classList.add(classes[i]);
-                    }
-                }
-                return this;
-            },
-            removeClass: function (className) {
-                var classes = className.split(' ');
-                for (var i = 0; i < classes.length; i++) {
-                    for (var j = 0; j < this.length; j++) {
-                        this[j].classList.remove(classes[i]);
-                    }
-                }
-                return this;
-            },
-            hasClass: function (className) {
-                if (!this[0]) return false;
-                else return this[0].classList.contains(className);
-            },
-            toggleClass: function (className) {
-                var classes = className.split(' ');
-                for (var i = 0; i < classes.length; i++) {
-                    for (var j = 0; j < this.length; j++) {
-                        this[j].classList.toggle(classes[i]);
-                    }
-                }
-                return this;
-            },
-            attr: function (attrs, value) {
-                if (arguments.length === 1 && typeof attrs === 'string') {
-                    // Get attr
-                    if (this[0]) return this[0].getAttribute(attrs);
-                    else return undefined;
-                }
-                else {
-                    // Set attrs
-                    for (var i = 0; i < this.length; i++) {
-                        if (arguments.length === 2) {
-                            // String
-                            this[i].setAttribute(attrs, value);
-                        }
-                        else {
-                            // Object
-                            for (var attrName in attrs) {
-                                this[i][attrName] = attrs[attrName];
-                                this[i].setAttribute(attrName, attrs[attrName]);
+                            if (!context && selector[0] === '#' && !selector.match(/[ .<>:~]/)) {
+                                // Pure ID selector
+                                els = [document.getElementById(selector.split('#')[1])];
+                            }
+                            else {
+                                // Other selectors
+                                els = (context || document).querySelectorAll(selector);
+                            }
+                            for (i = 0; i < els.length; i++) {
+                                if (els[i]) arr.push(els[i]);
                             }
                         }
                     }
+                    // Node/element
+                    else if (selector.nodeType || selector === window || selector === document) {
+                        arr.push(selector);
+                    }
+                    //Array of elements or instance of Dom
+                    else if (selector.length > 0 && selector[0].nodeType) {
+                        for (i = 0; i < selector.length; i++) {
+                            arr.push(selector[i]);
+                        }
+                    }
+                }
+                return new Dom7(arr);
+            };
+            Dom7.prototype = {
+                // Classes and attriutes
+                addClass: function (className) {
+                    if (typeof className === 'undefined') {
+                        return this;
+                    }
+                    var classes = className.split(' ');
+                    for (var i = 0; i < classes.length; i++) {
+                        for (var j = 0; j < this.length; j++) {
+                            this[j].classList.add(classes[i]);
+                        }
+                    }
                     return this;
-                }
-            },
-            removeAttr: function (attr) {
-                for (var i = 0; i < this.length; i++) {
-                    this[i].removeAttribute(attr);
-                }
-                return this;
-            },
-            data: function (key, value) {
-                if (typeof value === 'undefined') {
-                    // Get value
-                    if (this[0]) {
-                        var dataKey = this[0].getAttribute('data-' + key);
-                        if (dataKey) return dataKey;
-                        else if (this[0].dom7ElementDataStorage && (key in this[0].dom7ElementDataStorage)) return this[0].dom7ElementDataStorage[key];
+                },
+                removeClass: function (className) {
+                    var classes = className.split(' ');
+                    for (var i = 0; i < classes.length; i++) {
+                        for (var j = 0; j < this.length; j++) {
+                            this[j].classList.remove(classes[i]);
+                        }
+                    }
+                    return this;
+                },
+                hasClass: function (className) {
+                    if (!this[0]) return false;
+                    else return this[0].classList.contains(className);
+                },
+                toggleClass: function (className) {
+                    var classes = className.split(' ');
+                    for (var i = 0; i < classes.length; i++) {
+                        for (var j = 0; j < this.length; j++) {
+                            this[j].classList.toggle(classes[i]);
+                        }
+                    }
+                    return this;
+                },
+                attr: function (attrs, value) {
+                    if (arguments.length === 1 && typeof attrs === 'string') {
+                        // Get attr
+                        if (this[0]) return this[0].getAttribute(attrs);
                         else return undefined;
                     }
-                    else return undefined;
-                }
-                else {
-                    // Set value
+                    else {
+                        // Set attrs
+                        for (var i = 0; i < this.length; i++) {
+                            if (arguments.length === 2) {
+                                // String
+                                this[i].setAttribute(attrs, value);
+                            }
+                            else {
+                                // Object
+                                for (var attrName in attrs) {
+                                    this[i][attrName] = attrs[attrName];
+                                    this[i].setAttribute(attrName, attrs[attrName]);
+                                }
+                            }
+                        }
+                        return this;
+                    }
+                },
+                removeAttr: function (attr) {
                     for (var i = 0; i < this.length; i++) {
-                        var el = this[i];
-                        if (!el.dom7ElementDataStorage) el.dom7ElementDataStorage = {};
-                        el.dom7ElementDataStorage[key] = value;
+                        this[i].removeAttribute(attr);
                     }
                     return this;
-                }
-            },
-            // Transforms
-            transform : function (transform) {
-                for (var i = 0; i < this.length; i++) {
-                    var elStyle = this[i].style;
-                    elStyle.webkitTransform = elStyle.MsTransform = elStyle.msTransform = elStyle.MozTransform = elStyle.OTransform = elStyle.transform = transform;
-                }
-                return this;
-            },
-            transition: function (duration) {
-                if (typeof duration !== 'string') {
-                    duration = duration + 'ms';
-                }
-                for (var i = 0; i < this.length; i++) {
-                    var elStyle = this[i].style;
-                    elStyle.webkitTransitionDuration = elStyle.MsTransitionDuration = elStyle.msTransitionDuration = elStyle.MozTransitionDuration = elStyle.OTransitionDuration = elStyle.transitionDuration = duration;
-                }
-                return this;
-            },
-            //Events
-            on: function (eventName, targetSelector, listener, capture) {
-                function handleLiveEvent(e) {
-                    var target = e.target;
-                    if ($(target).is(targetSelector)) listener.call(target, e);
-                    else {
-                        var parents = $(target).parents();
-                        for (var k = 0; k < parents.length; k++) {
-                            if ($(parents[k]).is(targetSelector)) listener.call(parents[k], e);
+                },
+                data: function (key, value) {
+                    if (typeof value === 'undefined') {
+                        // Get value
+                        if (this[0]) {
+                            var dataKey = this[0].getAttribute('data-' + key);
+                            if (dataKey) return dataKey;
+                            else if (this[0].dom7ElementDataStorage && (key in this[0].dom7ElementDataStorage)) return this[0].dom7ElementDataStorage[key];
+                            else return undefined;
                         }
-                    }
-                }
-                var events = eventName.split(' ');
-                var i, j;
-                for (i = 0; i < this.length; i++) {
-                    if (typeof targetSelector === 'function' || targetSelector === false) {
-                        // Usual events
-                        if (typeof targetSelector === 'function') {
-                            listener = arguments[1];
-                            capture = arguments[2] || false;
-                        }
-                        for (j = 0; j < events.length; j++) {
-                            this[i].addEventListener(events[j], listener, capture);
-                        }
+                        else return undefined;
                     }
                     else {
-                        //Live events
-                        for (j = 0; j < events.length; j++) {
-                            if (!this[i].dom7LiveListeners) this[i].dom7LiveListeners = [];
-                            this[i].dom7LiveListeners.push({listener: listener, liveListener: handleLiveEvent});
-                            this[i].addEventListener(events[j], handleLiveEvent, capture);
+                        // Set value
+                        for (var i = 0; i < this.length; i++) {
+                            var el = this[i];
+                            if (!el.dom7ElementDataStorage) el.dom7ElementDataStorage = {};
+                            el.dom7ElementDataStorage[key] = value;
+                        }
+                        return this;
+                    }
+                },
+                // Transforms
+                transform : function (transform) {
+                    for (var i = 0; i < this.length; i++) {
+                        var elStyle = this[i].style;
+                        elStyle.webkitTransform = elStyle.MsTransform = elStyle.msTransform = elStyle.MozTransform = elStyle.OTransform = elStyle.transform = transform;
+                    }
+                    return this;
+                },
+                transition: function (duration) {
+                    if (typeof duration !== 'string') {
+                        duration = duration + 'ms';
+                    }
+                    for (var i = 0; i < this.length; i++) {
+                        var elStyle = this[i].style;
+                        elStyle.webkitTransitionDuration = elStyle.MsTransitionDuration = elStyle.msTransitionDuration = elStyle.MozTransitionDuration = elStyle.OTransitionDuration = elStyle.transitionDuration = duration;
+                    }
+                    return this;
+                },
+                //Events
+                on: function (eventName, targetSelector, listener, capture) {
+                    function handleLiveEvent(e) {
+                        var target = e.target;
+                        if ($(target).is(targetSelector)) listener.call(target, e);
+                        else {
+                            var parents = $(target).parents();
+                            for (var k = 0; k < parents.length; k++) {
+                                if ($(parents[k]).is(targetSelector)) listener.call(parents[k], e);
+                            }
                         }
                     }
-                }
-    
-                return this;
-            },
-            off: function (eventName, targetSelector, listener, capture) {
-                var events = eventName.split(' ');
-                for (var i = 0; i < events.length; i++) {
-                    for (var j = 0; j < this.length; j++) {
+                    var events = eventName.split(' ');
+                    var i, j;
+                    for (i = 0; i < this.length; i++) {
                         if (typeof targetSelector === 'function' || targetSelector === false) {
                             // Usual events
                             if (typeof targetSelector === 'function') {
                                 listener = arguments[1];
                                 capture = arguments[2] || false;
                             }
-                            this[j].removeEventListener(events[i], listener, capture);
+                            for (j = 0; j < events.length; j++) {
+                                this[i].addEventListener(events[j], listener, capture);
+                            }
                         }
                         else {
-                            // Live event
-                            if (this[j].dom7LiveListeners) {
-                                for (var k = 0; k < this[j].dom7LiveListeners.length; k++) {
-                                    if (this[j].dom7LiveListeners[k].listener === listener) {
-                                        this[j].removeEventListener(events[i], this[j].dom7LiveListeners[k].liveListener, capture);
+                            //Live events
+                            for (j = 0; j < events.length; j++) {
+                                if (!this[i].dom7LiveListeners) this[i].dom7LiveListeners = [];
+                                this[i].dom7LiveListeners.push({listener: listener, liveListener: handleLiveEvent});
+                                this[i].addEventListener(events[j], handleLiveEvent, capture);
+                            }
+                        }
+                    }
+        
+                    return this;
+                },
+                off: function (eventName, targetSelector, listener, capture) {
+                    var events = eventName.split(' ');
+                    for (var i = 0; i < events.length; i++) {
+                        for (var j = 0; j < this.length; j++) {
+                            if (typeof targetSelector === 'function' || targetSelector === false) {
+                                // Usual events
+                                if (typeof targetSelector === 'function') {
+                                    listener = arguments[1];
+                                    capture = arguments[2] || false;
+                                }
+                                this[j].removeEventListener(events[i], listener, capture);
+                            }
+                            else {
+                                // Live event
+                                if (this[j].dom7LiveListeners) {
+                                    for (var k = 0; k < this[j].dom7LiveListeners.length; k++) {
+                                        if (this[j].dom7LiveListeners[k].listener === listener) {
+                                            this[j].removeEventListener(events[i], this[j].dom7LiveListeners[k].liveListener, capture);
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
-                return this;
-            },
-            once: function (eventName, targetSelector, listener, capture) {
-                var dom = this;
-                if (typeof targetSelector === 'function') {
-                    targetSelector = false;
-                    listener = arguments[1];
-                    capture = arguments[2];
-                }
-                function proxy(e) {
-                    listener(e);
-                    dom.off(eventName, targetSelector, proxy, capture);
-                }
-                dom.on(eventName, targetSelector, proxy, capture);
-            },
-            trigger: function (eventName, eventData) {
-                for (var i = 0; i < this.length; i++) {
-                    var evt;
-                    try {
-                        evt = new window.CustomEvent(eventName, {detail: eventData, bubbles: true, cancelable: true});
+                    return this;
+                },
+                once: function (eventName, targetSelector, listener, capture) {
+                    var dom = this;
+                    if (typeof targetSelector === 'function') {
+                        targetSelector = false;
+                        listener = arguments[1];
+                        capture = arguments[2];
                     }
-                    catch (e) {
-                        evt = document.createEvent('Event');
-                        evt.initEvent(eventName, true, true);
-                        evt.detail = eventData;
+                    function proxy(e) {
+                        listener(e);
+                        dom.off(eventName, targetSelector, proxy, capture);
                     }
-                    this[i].dispatchEvent(evt);
-                }
-                return this;
-            },
-            transitionEnd: function (callback) {
-                var events = ['webkitTransitionEnd', 'transitionend', 'oTransitionEnd', 'MSTransitionEnd', 'msTransitionEnd'],
-                    i, j, dom = this;
-                function fireCallBack(e) {
-                    /*jshint validthis:true */
-                    if (e.target !== this) return;
-                    callback.call(this, e);
-                    for (i = 0; i < events.length; i++) {
-                        dom.off(events[i], fireCallBack);
+                    dom.on(eventName, targetSelector, proxy, capture);
+                },
+                trigger: function (eventName, eventData) {
+                    for (var i = 0; i < this.length; i++) {
+                        var evt;
+                        try {
+                            evt = new window.CustomEvent(eventName, {detail: eventData, bubbles: true, cancelable: true});
+                        }
+                        catch (e) {
+                            evt = document.createEvent('Event');
+                            evt.initEvent(eventName, true, true);
+                            evt.detail = eventData;
+                        }
+                        this[i].dispatchEvent(evt);
                     }
-                }
-                if (callback) {
-                    for (i = 0; i < events.length; i++) {
-                        dom.on(events[i], fireCallBack);
+                    return this;
+                },
+                transitionEnd: function (callback) {
+                    var events = ['webkitTransitionEnd', 'transitionend', 'oTransitionEnd', 'MSTransitionEnd', 'msTransitionEnd'],
+                        i, j, dom = this;
+                    function fireCallBack(e) {
+                        /*jshint validthis:true */
+                        if (e.target !== this) return;
+                        callback.call(this, e);
+                        for (i = 0; i < events.length; i++) {
+                            dom.off(events[i], fireCallBack);
+                        }
                     }
-                }
-                return this;
-            },
-            // Sizing/Styles
-            width: function () {
-                if (this[0] === window) {
-                    return window.innerWidth;
-                }
-                else {
+                    if (callback) {
+                        for (i = 0; i < events.length; i++) {
+                            dom.on(events[i], fireCallBack);
+                        }
+                    }
+                    return this;
+                },
+                // Sizing/Styles
+                width: function () {
+                    if (this[0] === window) {
+                        return window.innerWidth;
+                    }
+                    else {
+                        if (this.length > 0) {
+                            return parseFloat(this.css('width'));
+                        }
+                        else {
+                            return null;
+                        }
+                    }
+                },
+                outerWidth: function (includeMargins) {
                     if (this.length > 0) {
-                        return parseFloat(this.css('width'));
+                        if (includeMargins)
+                            return this[0].offsetWidth + parseFloat(this.css('margin-right')) + parseFloat(this.css('margin-left'));
+                        else
+                            return this[0].offsetWidth;
+                    }
+                    else return null;
+                },
+                height: function () {
+                    if (this[0] === window) {
+                        return window.innerHeight;
+                    }
+                    else {
+                        if (this.length > 0) {
+                            return parseFloat(this.css('height'));
+                        }
+                        else {
+                            return null;
+                        }
+                    }
+                },
+                outerHeight: function (includeMargins) {
+                    if (this.length > 0) {
+                        if (includeMargins)
+                            return this[0].offsetHeight + parseFloat(this.css('margin-top')) + parseFloat(this.css('margin-bottom'));
+                        else
+                            return this[0].offsetHeight;
+                    }
+                    else return null;
+                },
+                offset: function () {
+                    if (this.length > 0) {
+                        var el = this[0];
+                        var box = el.getBoundingClientRect();
+                        var body = document.body;
+                        var clientTop  = el.clientTop  || body.clientTop  || 0;
+                        var clientLeft = el.clientLeft || body.clientLeft || 0;
+                        var scrollTop  = window.pageYOffset || el.scrollTop;
+                        var scrollLeft = window.pageXOffset || el.scrollLeft;
+                        return {
+                            top: box.top  + scrollTop  - clientTop,
+                            left: box.left + scrollLeft - clientLeft
+                        };
                     }
                     else {
                         return null;
                     }
-                }
-            },
-            outerWidth: function (includeMargins) {
-                if (this.length > 0) {
-                    if (includeMargins)
-                        return this[0].offsetWidth + parseFloat(this.css('margin-right')) + parseFloat(this.css('margin-left'));
-                    else
-                        return this[0].offsetWidth;
-                }
-                else return null;
-            },
-            height: function () {
-                if (this[0] === window) {
-                    return window.innerHeight;
-                }
-                else {
-                    if (this.length > 0) {
-                        return parseFloat(this.css('height'));
-                    }
-                    else {
-                        return null;
-                    }
-                }
-            },
-            outerHeight: function (includeMargins) {
-                if (this.length > 0) {
-                    if (includeMargins)
-                        return this[0].offsetHeight + parseFloat(this.css('margin-top')) + parseFloat(this.css('margin-bottom'));
-                    else
-                        return this[0].offsetHeight;
-                }
-                else return null;
-            },
-            offset: function () {
-                if (this.length > 0) {
-                    var el = this[0];
-                    var box = el.getBoundingClientRect();
-                    var body = document.body;
-                    var clientTop  = el.clientTop  || body.clientTop  || 0;
-                    var clientLeft = el.clientLeft || body.clientLeft || 0;
-                    var scrollTop  = window.pageYOffset || el.scrollTop;
-                    var scrollLeft = window.pageXOffset || el.scrollLeft;
-                    return {
-                        top: box.top  + scrollTop  - clientTop,
-                        left: box.left + scrollLeft - clientLeft
-                    };
-                }
-                else {
-                    return null;
-                }
-            },
-            css: function (props, value) {
-                var i;
-                if (arguments.length === 1) {
-                    if (typeof props === 'string') {
-                        if (this[0]) return window.getComputedStyle(this[0], null).getPropertyValue(props);
-                    }
-                    else {
-                        for (i = 0; i < this.length; i++) {
-                            for (var prop in props) {
-                                this[i].style[prop] = props[prop];
+                },
+                css: function (props, value) {
+                    var i;
+                    if (arguments.length === 1) {
+                        if (typeof props === 'string') {
+                            if (this[0]) return window.getComputedStyle(this[0], null).getPropertyValue(props);
+                        }
+                        else {
+                            for (i = 0; i < this.length; i++) {
+                                for (var prop in props) {
+                                    this[i].style[prop] = props[prop];
+                                }
                             }
+                            return this;
+                        }
+                    }
+                    if (arguments.length === 2 && typeof props === 'string') {
+                        for (i = 0; i < this.length; i++) {
+                            this[i].style[props] = value;
                         }
                         return this;
                     }
-                }
-                if (arguments.length === 2 && typeof props === 'string') {
-                    for (i = 0; i < this.length; i++) {
-                        this[i].style[props] = value;
-                    }
                     return this;
-                }
-                return this;
-            },
-    
-            //Dom manipulation
-            each: function (callback) {
-                for (var i = 0; i < this.length; i++) {
-                    callback.call(this[i], i, this[i]);
-                }
-                return this;
-            },
-            html: function (html) {
-                if (typeof html === 'undefined') {
-                    return this[0] ? this[0].innerHTML : undefined;
-                }
-                else {
+                },
+        
+                //Dom manipulation
+                each: function (callback) {
                     for (var i = 0; i < this.length; i++) {
-                        this[i].innerHTML = html;
+                        callback.call(this[i], i, this[i]);
                     }
                     return this;
-                }
-            },
-            text: function (text) {
-                if (typeof text === 'undefined') {
+                },
+                html: function (html) {
+                    if (typeof html === 'undefined') {
+                        return this[0] ? this[0].innerHTML : undefined;
+                    }
+                    else {
+                        for (var i = 0; i < this.length; i++) {
+                            this[i].innerHTML = html;
+                        }
+                        return this;
+                    }
+                },
+                text: function (text) {
+                    if (typeof text === 'undefined') {
+                        if (this[0]) {
+                            return this[0].textContent.trim();
+                        }
+                        else return null;
+                    }
+                    else {
+                        for (var i = 0; i < this.length; i++) {
+                            this[i].textContent = text;
+                        }
+                        return this;
+                    }
+                },
+                is: function (selector) {
+                    if (!this[0]) return false;
+                    var compareWith, i;
+                    if (typeof selector === 'string') {
+                        var el = this[0];
+                        if (el === document) return selector === document;
+                        if (el === window) return selector === window;
+        
+                        if (el.matches) return el.matches(selector);
+                        else if (el.webkitMatchesSelector) return el.webkitMatchesSelector(selector);
+                        else if (el.mozMatchesSelector) return el.mozMatchesSelector(selector);
+                        else if (el.msMatchesSelector) return el.msMatchesSelector(selector);
+                        else {
+                            compareWith = $(selector);
+                            for (i = 0; i < compareWith.length; i++) {
+                                if (compareWith[i] === this[0]) return true;
+                            }
+                            return false;
+                        }
+                    }
+                    else if (selector === document) return this[0] === document;
+                    else if (selector === window) return this[0] === window;
+                    else {
+                        if (selector.nodeType || selector instanceof Dom7) {
+                            compareWith = selector.nodeType ? [selector] : selector;
+                            for (i = 0; i < compareWith.length; i++) {
+                                if (compareWith[i] === this[0]) return true;
+                            }
+                            return false;
+                        }
+                        return false;
+                    }
+        
+                },
+                index: function () {
                     if (this[0]) {
-                        return this[0].textContent.trim();
+                        var child = this[0];
+                        var i = 0;
+                        while ((child = child.previousSibling) !== null) {
+                            if (child.nodeType === 1) i++;
+                        }
+                        return i;
+                    }
+                    else return undefined;
+                },
+                eq: function (index) {
+                    if (typeof index === 'undefined') return this;
+                    var length = this.length;
+                    var returnIndex;
+                    if (index > length - 1) {
+                        return new Dom7([]);
+                    }
+                    if (index < 0) {
+                        returnIndex = length + index;
+                        if (returnIndex < 0) return new Dom7([]);
+                        else return new Dom7([this[returnIndex]]);
+                    }
+                    return new Dom7([this[index]]);
+                },
+                append: function (newChild) {
+                    var i, j;
+                    for (i = 0; i < this.length; i++) {
+                        if (typeof newChild === 'string') {
+                            var tempDiv = document.createElement('div');
+                            tempDiv.innerHTML = newChild;
+                            while (tempDiv.firstChild) {
+                                this[i].appendChild(tempDiv.firstChild);
+                            }
+                        }
+                        else if (newChild instanceof Dom7) {
+                            for (j = 0; j < newChild.length; j++) {
+                                this[i].appendChild(newChild[j]);
+                            }
+                        }
+                        else {
+                            this[i].appendChild(newChild);
+                        }
+                    }
+                    return this;
+                },
+                prepend: function (newChild) {
+                    var i, j;
+                    for (i = 0; i < this.length; i++) {
+                        if (typeof newChild === 'string') {
+                            var tempDiv = document.createElement('div');
+                            tempDiv.innerHTML = newChild;
+                            for (j = tempDiv.childNodes.length - 1; j >= 0; j--) {
+                                this[i].insertBefore(tempDiv.childNodes[j], this[i].childNodes[0]);
+                            }
+                            // this[i].insertAdjacentHTML('afterbegin', newChild);
+                        }
+                        else if (newChild instanceof Dom7) {
+                            for (j = 0; j < newChild.length; j++) {
+                                this[i].insertBefore(newChild[j], this[i].childNodes[0]);
+                            }
+                        }
+                        else {
+                            this[i].insertBefore(newChild, this[i].childNodes[0]);
+                        }
+                    }
+                    return this;
+                },
+                insertBefore: function (selector) {
+                    var before = $(selector);
+                    for (var i = 0; i < this.length; i++) {
+                        if (before.length === 1) {
+                            before[0].parentNode.insertBefore(this[i], before[0]);
+                        }
+                        else if (before.length > 1) {
+                            for (var j = 0; j < before.length; j++) {
+                                before[j].parentNode.insertBefore(this[i].cloneNode(true), before[j]);
+                            }
+                        }
+                    }
+                },
+                insertAfter: function (selector) {
+                    var after = $(selector);
+                    for (var i = 0; i < this.length; i++) {
+                        if (after.length === 1) {
+                            after[0].parentNode.insertBefore(this[i], after[0].nextSibling);
+                        }
+                        else if (after.length > 1) {
+                            for (var j = 0; j < after.length; j++) {
+                                after[j].parentNode.insertBefore(this[i].cloneNode(true), after[j].nextSibling);
+                            }
+                        }
+                    }
+                },
+                next: function (selector) {
+                    if (this.length > 0) {
+                        if (selector) {
+                            if (this[0].nextElementSibling && $(this[0].nextElementSibling).is(selector)) return new Dom7([this[0].nextElementSibling]);
+                            else return new Dom7([]);
+                        }
+                        else {
+                            if (this[0].nextElementSibling) return new Dom7([this[0].nextElementSibling]);
+                            else return new Dom7([]);
+                        }
+                    }
+                    else return new Dom7([]);
+                },
+                nextAll: function (selector) {
+                    var nextEls = [];
+                    var el = this[0];
+                    if (!el) return new Dom7([]);
+                    while (el.nextElementSibling) {
+                        var next = el.nextElementSibling;
+                        if (selector) {
+                            if($(next).is(selector)) nextEls.push(next);
+                        }
+                        else nextEls.push(next);
+                        el = next;
+                    }
+                    return new Dom7(nextEls);
+                },
+                prev: function (selector) {
+                    if (this.length > 0) {
+                        if (selector) {
+                            if (this[0].previousElementSibling && $(this[0].previousElementSibling).is(selector)) return new Dom7([this[0].previousElementSibling]);
+                            else return new Dom7([]);
+                        }
+                        else {
+                            if (this[0].previousElementSibling) return new Dom7([this[0].previousElementSibling]);
+                            else return new Dom7([]);
+                        }
+                    }
+                    else return new Dom7([]);
+                },
+                prevAll: function (selector) {
+                    var prevEls = [];
+                    var el = this[0];
+                    if (!el) return new Dom7([]);
+                    while (el.previousElementSibling) {
+                        var prev = el.previousElementSibling;
+                        if (selector) {
+                            if($(prev).is(selector)) prevEls.push(prev);
+                        }
+                        else prevEls.push(prev);
+                        el = prev;
+                    }
+                    return new Dom7(prevEls);
+                },
+                parent: function (selector) {
+                    var parents = [];
+                    for (var i = 0; i < this.length; i++) {
+                        if (selector) {
+                            if ($(this[i].parentNode).is(selector)) parents.push(this[i].parentNode);
+                        }
+                        else {
+                            parents.push(this[i].parentNode);
+                        }
+                    }
+                    return $($.unique(parents));
+                },
+                parents: function (selector) {
+                    var parents = [];
+                    for (var i = 0; i < this.length; i++) {
+                        var parent = this[i].parentNode;
+                        while (parent) {
+                            if (selector) {
+                                if ($(parent).is(selector)) parents.push(parent);
+                            }
+                            else {
+                                parents.push(parent);
+                            }
+                            parent = parent.parentNode;
+                        }
+                    }
+                    return $($.unique(parents));
+                },
+                find : function (selector) {
+                    var foundElements = [];
+                    for (var i = 0; i < this.length; i++) {
+                        var found = this[i].querySelectorAll(selector);
+                        for (var j = 0; j < found.length; j++) {
+                            foundElements.push(found[j]);
+                        }
+                    }
+                    return new Dom7(foundElements);
+                },
+                children: function (selector) {
+                    var children = [];
+                    for (var i = 0; i < this.length; i++) {
+                        var childNodes = this[i].childNodes;
+        
+                        for (var j = 0; j < childNodes.length; j++) {
+                            if (!selector) {
+                                if (childNodes[j].nodeType === 1) children.push(childNodes[j]);
+                            }
+                            else {
+                                if (childNodes[j].nodeType === 1 && $(childNodes[j]).is(selector)) children.push(childNodes[j]);
+                            }
+                        }
+                    }
+                    return new Dom7($.unique(children));
+                },
+                remove: function () {
+                    for (var i = 0; i < this.length; i++) {
+                        if (this[i].parentNode) this[i].parentNode.removeChild(this[i]);
+                    }
+                    return this;
+                },
+                add: function () {
+                    var dom = this;
+                    var i, j;
+                    for (i = 0; i < arguments.length; i++) {
+                        var toAdd = $(arguments[i]);
+                        for (j = 0; j < toAdd.length; j++) {
+                            dom[dom.length] = toAdd[j];
+                            dom.length++;
+                        }
+                    }
+                    return dom;
+                }
+            };
+            $.fn = Dom7.prototype;
+            $.unique = function (arr) {
+                var unique = [];
+                for (var i = 0; i < arr.length; i++) {
+                    if (unique.indexOf(arr[i]) === -1) unique.push(arr[i]);
+                }
+                return unique;
+            };
+        
+            return $;
+        })();
+        
+
+        /*===========================
+         得到 Dom
+         ===========================*/
+        var swiperDomPlugins = ['jQuery', 'Zepto', 'Dom7'];
+        for (var i = 0; i < swiperDomPlugins.length; i++) {
+        	if (window[swiperDomPlugins[i]]) {
+        		addLibraryPlugin(window[swiperDomPlugins[i]]);
+        	}
+        }
+        // Required DOM Plugins
+        var domLib;
+        if (typeof Dom7 === 'undefined') {
+        	domLib = window.Dom7 || window.Zepto || window.jQuery;
+        }
+        else {
+        	domLib = Dom7;
+        }
+        
+
+        /*===========================
+        添加 .swiper 插件从 Dom 库
+        ===========================*/
+        function addLibraryPlugin(lib) {
+            lib.fn.swiper = function (params) {
+                var firstInstance;
+                lib(this).each(function () {
+                    var s = new Swiper(this, params);
+                    if (!firstInstance) firstInstance = s;
+                });
+                return firstInstance;
+            };
+        }
+        
+        if (domLib) {
+            if (!('transitionEnd' in domLib.fn)) {
+                domLib.fn.transitionEnd = function (callback) {
+                    var events = ['webkitTransitionEnd', 'transitionend', 'oTransitionEnd', 'MSTransitionEnd', 'msTransitionEnd'],
+                        i, j, dom = this;
+                    function fireCallBack(e) {
+                        /*jshint validthis:true */
+                        if (e.target !== this) return;
+                        callback.call(this, e);
+                        for (i = 0; i < events.length; i++) {
+                            dom.off(events[i], fireCallBack);
+                        }
+                    }
+                    if (callback) {
+                        for (i = 0; i < events.length; i++) {
+                            dom.on(events[i], fireCallBack);
+                        }
+                    }
+                    return this;
+                };
+            }
+            if (!('transform' in domLib.fn)) {
+                domLib.fn.transform = function (transform) {
+                    for (var i = 0; i < this.length; i++) {
+                        var elStyle = this[i].style;
+                        elStyle.webkitTransform = elStyle.MsTransform = elStyle.msTransform = elStyle.MozTransform = elStyle.OTransform = elStyle.transform = transform;
+                    }
+                    return this;
+                };
+            }
+            if (!('transition' in domLib.fn)) {
+                domLib.fn.transition = function (duration) {
+                    if (typeof duration !== 'string') {
+                        duration = duration + 'ms';
+                    }
+                    for (var i = 0; i < this.length; i++) {
+                        var elStyle = this[i].style;
+                        elStyle.webkitTransitionDuration = elStyle.MsTransitionDuration = elStyle.msTransitionDuration = elStyle.MozTransitionDuration = elStyle.OTransitionDuration = elStyle.transitionDuration = duration;
+                    }
+                    return this;
+                };
+            }
+            if (!('outerWidth' in domLib.fn)) {
+                domLib.fn.outerWidth = function (includeMargins) {
+                    if (this.length > 0) {
+                        if (includeMargins)
+                            return this[0].offsetWidth + parseFloat(this.css('margin-right')) + parseFloat(this.css('margin-left'));
+                        else
+                            return this[0].offsetWidth;
                     }
                     else return null;
-                }
-                else {
-                    for (var i = 0; i < this.length; i++) {
-                        this[i].textContent = text;
-                    }
-                    return this;
-                }
-            },
-            is: function (selector) {
-                if (!this[0]) return false;
-                var compareWith, i;
-                if (typeof selector === 'string') {
-                    var el = this[0];
-                    if (el === document) return selector === document;
-                    if (el === window) return selector === window;
-    
-                    if (el.matches) return el.matches(selector);
-                    else if (el.webkitMatchesSelector) return el.webkitMatchesSelector(selector);
-                    else if (el.mozMatchesSelector) return el.mozMatchesSelector(selector);
-                    else if (el.msMatchesSelector) return el.msMatchesSelector(selector);
-                    else {
-                        compareWith = $(selector);
-                        for (i = 0; i < compareWith.length; i++) {
-                            if (compareWith[i] === this[0]) return true;
-                        }
-                        return false;
-                    }
-                }
-                else if (selector === document) return this[0] === document;
-                else if (selector === window) return this[0] === window;
-                else {
-                    if (selector.nodeType || selector instanceof Dom7) {
-                        compareWith = selector.nodeType ? [selector] : selector;
-                        for (i = 0; i < compareWith.length; i++) {
-                            if (compareWith[i] === this[0]) return true;
-                        }
-                        return false;
-                    }
-                    return false;
-                }
-    
-            },
-            index: function () {
-                if (this[0]) {
-                    var child = this[0];
-                    var i = 0;
-                    while ((child = child.previousSibling) !== null) {
-                        if (child.nodeType === 1) i++;
-                    }
-                    return i;
-                }
-                else return undefined;
-            },
-            eq: function (index) {
-                if (typeof index === 'undefined') return this;
-                var length = this.length;
-                var returnIndex;
-                if (index > length - 1) {
-                    return new Dom7([]);
-                }
-                if (index < 0) {
-                    returnIndex = length + index;
-                    if (returnIndex < 0) return new Dom7([]);
-                    else return new Dom7([this[returnIndex]]);
-                }
-                return new Dom7([this[index]]);
-            },
-            append: function (newChild) {
-                var i, j;
-                for (i = 0; i < this.length; i++) {
-                    if (typeof newChild === 'string') {
-                        var tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = newChild;
-                        while (tempDiv.firstChild) {
-                            this[i].appendChild(tempDiv.firstChild);
-                        }
-                    }
-                    else if (newChild instanceof Dom7) {
-                        for (j = 0; j < newChild.length; j++) {
-                            this[i].appendChild(newChild[j]);
-                        }
-                    }
-                    else {
-                        this[i].appendChild(newChild);
-                    }
-                }
-                return this;
-            },
-            prepend: function (newChild) {
-                var i, j;
-                for (i = 0; i < this.length; i++) {
-                    if (typeof newChild === 'string') {
-                        var tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = newChild;
-                        for (j = tempDiv.childNodes.length - 1; j >= 0; j--) {
-                            this[i].insertBefore(tempDiv.childNodes[j], this[i].childNodes[0]);
-                        }
-                        // this[i].insertAdjacentHTML('afterbegin', newChild);
-                    }
-                    else if (newChild instanceof Dom7) {
-                        for (j = 0; j < newChild.length; j++) {
-                            this[i].insertBefore(newChild[j], this[i].childNodes[0]);
-                        }
-                    }
-                    else {
-                        this[i].insertBefore(newChild, this[i].childNodes[0]);
-                    }
-                }
-                return this;
-            },
-            insertBefore: function (selector) {
-                var before = $(selector);
-                for (var i = 0; i < this.length; i++) {
-                    if (before.length === 1) {
-                        before[0].parentNode.insertBefore(this[i], before[0]);
-                    }
-                    else if (before.length > 1) {
-                        for (var j = 0; j < before.length; j++) {
-                            before[j].parentNode.insertBefore(this[i].cloneNode(true), before[j]);
-                        }
-                    }
-                }
-            },
-            insertAfter: function (selector) {
-                var after = $(selector);
-                for (var i = 0; i < this.length; i++) {
-                    if (after.length === 1) {
-                        after[0].parentNode.insertBefore(this[i], after[0].nextSibling);
-                    }
-                    else if (after.length > 1) {
-                        for (var j = 0; j < after.length; j++) {
-                            after[j].parentNode.insertBefore(this[i].cloneNode(true), after[j].nextSibling);
-                        }
-                    }
-                }
-            },
-            next: function (selector) {
-                if (this.length > 0) {
-                    if (selector) {
-                        if (this[0].nextElementSibling && $(this[0].nextElementSibling).is(selector)) return new Dom7([this[0].nextElementSibling]);
-                        else return new Dom7([]);
-                    }
-                    else {
-                        if (this[0].nextElementSibling) return new Dom7([this[0].nextElementSibling]);
-                        else return new Dom7([]);
-                    }
-                }
-                else return new Dom7([]);
-            },
-            nextAll: function (selector) {
-                var nextEls = [];
-                var el = this[0];
-                if (!el) return new Dom7([]);
-                while (el.nextElementSibling) {
-                    var next = el.nextElementSibling;
-                    if (selector) {
-                        if($(next).is(selector)) nextEls.push(next);
-                    }
-                    else nextEls.push(next);
-                    el = next;
-                }
-                return new Dom7(nextEls);
-            },
-            prev: function (selector) {
-                if (this.length > 0) {
-                    if (selector) {
-                        if (this[0].previousElementSibling && $(this[0].previousElementSibling).is(selector)) return new Dom7([this[0].previousElementSibling]);
-                        else return new Dom7([]);
-                    }
-                    else {
-                        if (this[0].previousElementSibling) return new Dom7([this[0].previousElementSibling]);
-                        else return new Dom7([]);
-                    }
-                }
-                else return new Dom7([]);
-            },
-            prevAll: function (selector) {
-                var prevEls = [];
-                var el = this[0];
-                if (!el) return new Dom7([]);
-                while (el.previousElementSibling) {
-                    var prev = el.previousElementSibling;
-                    if (selector) {
-                        if($(prev).is(selector)) prevEls.push(prev);
-                    }
-                    else prevEls.push(prev);
-                    el = prev;
-                }
-                return new Dom7(prevEls);
-            },
-            parent: function (selector) {
-                var parents = [];
-                for (var i = 0; i < this.length; i++) {
-                    if (selector) {
-                        if ($(this[i].parentNode).is(selector)) parents.push(this[i].parentNode);
-                    }
-                    else {
-                        parents.push(this[i].parentNode);
-                    }
-                }
-                return $($.unique(parents));
-            },
-            parents: function (selector) {
-                var parents = [];
-                for (var i = 0; i < this.length; i++) {
-                    var parent = this[i].parentNode;
-                    while (parent) {
-                        if (selector) {
-                            if ($(parent).is(selector)) parents.push(parent);
-                        }
-                        else {
-                            parents.push(parent);
-                        }
-                        parent = parent.parentNode;
-                    }
-                }
-                return $($.unique(parents));
-            },
-            find : function (selector) {
-                var foundElements = [];
-                for (var i = 0; i < this.length; i++) {
-                    var found = this[i].querySelectorAll(selector);
-                    for (var j = 0; j < found.length; j++) {
-                        foundElements.push(found[j]);
-                    }
-                }
-                return new Dom7(foundElements);
-            },
-            children: function (selector) {
-                var children = [];
-                for (var i = 0; i < this.length; i++) {
-                    var childNodes = this[i].childNodes;
-    
-                    for (var j = 0; j < childNodes.length; j++) {
-                        if (!selector) {
-                            if (childNodes[j].nodeType === 1) children.push(childNodes[j]);
-                        }
-                        else {
-                            if (childNodes[j].nodeType === 1 && $(childNodes[j]).is(selector)) children.push(childNodes[j]);
-                        }
-                    }
-                }
-                return new Dom7($.unique(children));
-            },
-            remove: function () {
-                for (var i = 0; i < this.length; i++) {
-                    if (this[i].parentNode) this[i].parentNode.removeChild(this[i]);
-                }
-                return this;
-            },
-            add: function () {
-                var dom = this;
-                var i, j;
-                for (i = 0; i < arguments.length; i++) {
-                    var toAdd = $(arguments[i]);
-                    for (j = 0; j < toAdd.length; j++) {
-                        dom[dom.length] = toAdd[j];
-                        dom.length++;
-                    }
-                }
-                return dom;
+                };
             }
-        };
-        $.fn = Dom7.prototype;
-        $.unique = function (arr) {
-            var unique = [];
-            for (var i = 0; i < arr.length; i++) {
-                if (unique.indexOf(arr[i]) === -1) unique.push(arr[i]);
-            }
-            return unique;
-        };
-    
-        return $;
-    })();
-    
+        }
+        
 
-    /*===========================
-     Get Dom libraries
-     ===========================*/
-    var swiperDomPlugins = ['jQuery', 'Zepto', 'Dom7'];
-    for (var i = 0; i < swiperDomPlugins.length; i++) {
-    	if (window[swiperDomPlugins[i]]) {
-    		addLibraryPlugin(window[swiperDomPlugins[i]]);
-    	}
-    }
-    // Required DOM Plugins
-    var domLib;
-    if (typeof Dom7 === 'undefined') {
-    	domLib = window.Dom7 || window.Zepto || window.jQuery;
-    }
-    else {
-    	domLib = Dom7;
-    }
-    
+            window.Swiper = Swiper;
+        })();
+        
 
-    /*===========================
-    Add .swiper plugin from Dom libraries
-    ===========================*/
-    function addLibraryPlugin(lib) {
-        lib.fn.swiper = function (params) {
-            var firstInstance;
-            lib(this).each(function () {
-                var s = new Swiper(this, params);
-                if (!firstInstance) firstInstance = s;
+        /*===========================
+        AMD 输出
+        ===========================*/
+        if (typeof(module) !== 'undefined')
+        {
+            module.exports = window.Swiper;
+        }
+        else if (typeof define === 'function' && define.amd) {
+            define([], function () {
+                'use strict';
+                return window.Swiper;
             });
-            return firstInstance;
-        };
-    }
-    
-    if (domLib) {
-        if (!('transitionEnd' in domLib.fn)) {
-            domLib.fn.transitionEnd = function (callback) {
-                var events = ['webkitTransitionEnd', 'transitionend', 'oTransitionEnd', 'MSTransitionEnd', 'msTransitionEnd'],
-                    i, j, dom = this;
-                function fireCallBack(e) {
-                    /*jshint validthis:true */
-                    if (e.target !== this) return;
-                    callback.call(this, e);
-                    for (i = 0; i < events.length; i++) {
-                        dom.off(events[i], fireCallBack);
-                    }
-                }
-                if (callback) {
-                    for (i = 0; i < events.length; i++) {
-                        dom.on(events[i], fireCallBack);
-                    }
-                }
-                return this;
-            };
         }
-        if (!('transform' in domLib.fn)) {
-            domLib.fn.transform = function (transform) {
-                for (var i = 0; i < this.length; i++) {
-                    var elStyle = this[i].style;
-                    elStyle.webkitTransform = elStyle.MsTransform = elStyle.msTransform = elStyle.MozTransform = elStyle.OTransform = elStyle.transform = transform;
-                }
-                return this;
-            };
-        }
-        if (!('transition' in domLib.fn)) {
-            domLib.fn.transition = function (duration) {
-                if (typeof duration !== 'string') {
-                    duration = duration + 'ms';
-                }
-                for (var i = 0; i < this.length; i++) {
-                    var elStyle = this[i].style;
-                    elStyle.webkitTransitionDuration = elStyle.MsTransitionDuration = elStyle.msTransitionDuration = elStyle.MozTransitionDuration = elStyle.OTransitionDuration = elStyle.transitionDuration = duration;
-                }
-                return this;
-            };
-        }
-        if (!('outerWidth' in domLib.fn)) {
-            domLib.fn.outerWidth = function (includeMargins) {
-                if (this.length > 0) {
-                    if (includeMargins)
-                        return this[0].offsetWidth + parseFloat(this.css('margin-right')) + parseFloat(this.css('margin-left'));
-                    else
-                        return this[0].offsetWidth;
-                }
-                else return null;
-            };
-        }
-    }
-    
-
-    window.Swiper = Swiper;
-})();
-
-/*===========================
-Swiper AMD Export
-===========================*/
-if (typeof(module) !== 'undefined')
-{
-    module.exports = window.Swiper;
-}
-else if (typeof define === 'function' && define.amd) {
-    define([], function () {
-        'use strict';
-        return window.Swiper;
-    });
-}
+        
 
 //# sourceMappingURL=maps/swiper.js.map

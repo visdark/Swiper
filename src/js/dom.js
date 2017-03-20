@@ -1,5 +1,5 @@
 /*===========================
-Dom7 Library
+Dom7 相关
 ===========================*/
 var Dom7 = (function () {
     var Dom7 = function (arr) {

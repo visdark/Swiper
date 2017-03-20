@@ -1,5 +1,5 @@
 /*=========================
-  Plugins API. Collect all and init all plugins
+  加入所有插件
   ===========================*/
 s._plugins = [];
 for (var plugin in s.plugins) {

@@ -1,5 +1,5 @@
 /*=========================
-  Parallax
+  视觉差
   ===========================*/
 function setParallaxTransform(el, progress) {
     el = $(el);

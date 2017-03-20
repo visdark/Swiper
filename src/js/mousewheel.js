@@ -1,5 +1,5 @@
 /*=========================
-  Mousewheel Control
+  鼠标控制器
   ===========================*/
 s.mousewheel = {
     event: false,

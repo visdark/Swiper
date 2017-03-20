@@ -1,5 +1,5 @@
 /*=========================
-  Keyboard Control
+  键盘控制器
   ===========================*/
 function handleKeyboard(e) {
     if (e.originalEvent) e = e.originalEvent; //jquery fix

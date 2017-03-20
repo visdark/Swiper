@@ -1,5 +1,5 @@
 /*=========================
-  Controller
+ 控制器
   ===========================*/
 s.controller = {
     LinearSpline: function (x, y) {

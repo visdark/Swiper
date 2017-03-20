@@ -1,12 +1,12 @@
 {
-  "name": "swiper",
+  "name": "swiper 滑动",
   "repository": {
     "type": "git",
     "url": "https://github.com/nolimits4web/Swiper.git"
   },
-  "description": "Most modern mobile touch slider and framework with hardware accelerated transitions",
+  "description": "最好用的滑动插件",
   "version": "3.4.2",
-  "author": "Vladimir Kharlampidi",
+  "author": "Vladimir Kharlampidi 整理：visdark",
   "homepage": "http://www.idangero.us/swiper/",
   "keywords": ["swiper", "swipe", "slider", "touch", "ios", "mobile", "cordova", "phonegap", "app", "framework", "carousel", "gallery"],
   "dependencies": {

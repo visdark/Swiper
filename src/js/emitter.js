@@ -1,5 +1,5 @@
 /*=========================
-  Events/Callbacks/Plugins Emitter
+  事件/回调/插件
   ===========================*/
 function normalizeEventName (eventName) {
     if (eventName.indexOf('on') !== 0) {

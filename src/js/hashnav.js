@@ -1,5 +1,5 @@
 /*=========================
-  Hash Navigation
+  导航
   ===========================*/
 s.hashnav = {
     onHashCange: function (e, a) {

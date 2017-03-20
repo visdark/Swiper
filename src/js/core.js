@@ -1,16 +1,18 @@
+// 核心代码
+
 var defaults = {
     direction: 'horizontal',
     touchEventsTarget: 'container',
     initialSlide: 0,
     speed: 300,
-    // autoplay
+    // 自动播放
     autoplay: false,
     autoplayDisableOnInteraction: true,
     autoplayStopOnLast: false,
-    // To support iOS's swipe-to-go-back gesture (when being used in-app, with UIWebView).
+    // 支持 iOS's swipe-to-go-back 手势 (当在应用内使用时和 UIWebView).
     iOSEdgeSwipeDetection: false,
     iOSEdgeSwipeThreshold: 20,
-    // Free mode
+    // 自由模式
     freeMode: false,
     freeModeMomentum: true,
     freeModeMomentumRatio: 1,
@@ -19,13 +21,13 @@ var defaults = {
     freeModeMomentumVelocityRatio: 1,
     freeModeSticky: false,
     freeModeMinimumVelocity: 0.02,
-    // Autoheight
+    // 自动高
     autoHeight: false,
-    // Set wrapper width
+    // 设置容器宽度
     setWrapperSize: false,
     // Virtual Translate
     virtualTranslate: false,
-    // Effects
+    // 效果
     effect: 'slide', // 'slide' or 'fade' or 'cube' or 'coverflow' or 'flip'
     coverflow: {
         rotate: 50,
@@ -47,19 +49,19 @@ var defaults = {
     fade: {
         crossFade: false
     },
-    // Parallax
+    // 视觉差
     parallax: false,
-    // Zoom
+    // Zoom 画廊
     zoom: false,
     zoomMax: 3,
     zoomMin: 1,
     zoomToggle: true,
-    // Scrollbar
+    // 滚动条
     scrollbar: null,
     scrollbarHide: true,
     scrollbarDraggable: false,
     scrollbarSnapOnRelease: false,
-    // Keyboard Mousewheel
+    // 键盘鼠标
     keyboardControl: false,
     mousewheelControl: false,
     mousewheelReleaseOnEdges: false,
@@ -67,16 +69,16 @@ var defaults = {
     mousewheelForceToAxis: false,
     mousewheelSensitivity: 1,
     mousewheelEventsTarged: 'container',
-    // Hash Navigation
+    // 导航
     hashnav: false,
     hashnavWatchState: false,
-    // History
+    // 历史
     history: false,
-    // Commong Nav State
+    // Commong 导航状态
     replaceState: false,
     // Breakpoints
     breakpoints: undefined,
-    // Slides grid
+    // 网格
     spaceBetween: 0,
     slidesPerView: 1,
     slidesPerColumn: 1,
@@ -87,7 +89,7 @@ var defaults = {
     slidesOffsetAfter: 0, // in px
     // Round length
     roundLengths: false,
-    // Touches
+    // 触摸
     touchRatio: 1,
     touchAngle: 45,
     simulateTouch: true,
@@ -102,7 +104,7 @@ var defaults = {
     touchReleaseOnEdges: false,
     // Unique Navigation Elements
     uniqueNavElements: true,
-    // Pagination
+    // 圆点标记
     pagination: null,
     paginationElement: 'span',
     paginationClickable: false,
@@ -115,7 +117,7 @@ var defaults = {
     // Resistance
     resistance: true,
     resistanceRatio: 0.85,
-    // Next/prev buttons
+    // 左右指示按钮
     nextButton: null,
     prevButton: null,
     // Progress
@@ -132,14 +134,14 @@ var defaults = {
     lazyLoadingInPrevNext: false,
     lazyLoadingInPrevNextAmount: 1,
     lazyLoadingOnTransitionStart: false,
-    // Images
+    // 图片
     preloadImages: true,
     updateOnImagesReady: true,
-    // loop
+    // 循环
     loop: false,
     loopAdditionalSlides: 0,
     loopedSlides: null,
-    // Control
+    // 控制
     control: undefined,
     controlInverse: false,
     controlBy: 'slide', //or 'container'
@@ -263,7 +265,7 @@ s.originalParams = originalParams;
 // Classname
 s.classNames = [];
 /*=========================
-  Dom Library and plugins
+  Dom 库和插件
   ===========================*/
 if (typeof $ !== 'undefined' && typeof Dom7 !== 'undefined'){
     $ = Dom7;
@@ -419,7 +421,7 @@ if (s.params.pagination) {
     }
     s.paginationContainer.addClass(s.params.paginationModifierClass + s.params.paginationType);
 }
-// Next/Prev Buttons
+// 左右按钮
 if (s.params.nextButton || s.params.prevButton) {
     if (s.params.nextButton) {
         s.nextButton = $(s.params.nextButton);

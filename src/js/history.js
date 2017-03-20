@@ -1,5 +1,5 @@
 /*=========================
-  History Api with fallback to Hashnav
+  历史 Api 和 撤销
   ===========================*/
 s.history = {
     init: function () {

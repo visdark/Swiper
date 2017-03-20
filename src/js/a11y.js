@@ -1,4 +1,4 @@
-// Accessibility tools
+// 协助工具
 s.a11y = {
     makeFocusable: function ($el) {
         $el.attr('tabIndex', '0');

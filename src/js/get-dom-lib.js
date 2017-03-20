@@ -1,5 +1,5 @@
 /*===========================
- Get Dom libraries
+ 得到 Dom
  ===========================*/
 var swiperDomPlugins = ['jQuery', 'Zepto', 'Dom7'];
 for (var i = 0; i < swiperDomPlugins.length; i++) {

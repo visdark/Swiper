@@ -1,5 +1,5 @@
 /*===========================
-Swiper AMD Export
+AMD 输出
 ===========================*/
 if (typeof(module) !== 'undefined')
 {

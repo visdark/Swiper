@@ -1,5 +1,5 @@
 /*===========================
-Swiper
+Swiper 插件F7开始
 ===========================*/
 window.Swiper = function (container, params) {
     if (!(this instanceof Swiper)) return new Swiper(container, params);

@@ -1,5 +1,5 @@
 /*===========================
-Add .swiper plugin from Dom libraries
+添加 .swiper 插件从 Dom 库
 ===========================*/
 function addLibraryPlugin(lib) {
     lib.fn.swiper = function (params) {

@@ -1,5 +1,5 @@
 /*=========================
-  Images Lazy Loading
+  图片延迟加载
   ===========================*/
 s.lazy = {
     initialImageLoaded: false,

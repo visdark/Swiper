@@ -1,5 +1,5 @@
 /*=========================
-  Init/Destroy
+  初始化/删除
   ===========================*/
 s.init = function () {
     if (s.params.loop) s.createLoop();

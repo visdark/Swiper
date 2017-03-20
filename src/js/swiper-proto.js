@@ -1,5 +1,5 @@
 /*==================================================
-    Prototype
+    原形
 ====================================================*/
 Swiper.prototype = {
     isSafari: (function () {
@@ -11,7 +11,7 @@ Swiper.prototype = {
         return Object.prototype.toString.apply(arr) === '[object Array]';
     },
     /*==================================================
-    Browser
+    浏览器
     ====================================================*/
     browser: {
         ie: window.navigator.pointerEnabled || window.navigator.msPointerEnabled,

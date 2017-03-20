@@ -1,55 +1,59 @@
 /**
  * Swiper 3.4.2
- * Most modern mobile touch slider and framework with hardware accelerated transitions
+ * 最好用的滑动插件
  * 
  * http://www.idangero.us/swiper/
  * 
- * Copyright 2017, Vladimir Kharlampidi
+ * 版权所有 2017, Vladimir Kharlampidi 整理：visdark
  * The iDangero.us
  * http://www.idangero.us/
  * 
- * Licensed under MIT
+ * 许可: MIT
  * 
- * Released on: March 10, 2017
+ * 发布时间: March 20, 2017
  */
-(function (root, factory) {
-	'use strict';
+        (function (root, factory) {
+        	'use strict';
+        
+        	if (typeof define === 'function' && define.amd) {
+        		// AMD. Register as an anonymous module.
+        		define(['jquery'], factory);
+        	} else if (typeof exports === 'object') {
+        		// Node. Does not work with strict CommonJS, but
+        		// only CommonJS-like environments that support module.exports,
+        		// like Node.
+        		module.exports = factory(require('jquery'));
+        	} else {
+        		// Browser globals (root is window)
+        		root.Swiper = factory(root.jQuery);
+        	}
+        }(this, function ($) {
+        	'use strict';
+        
 
-	if (typeof define === 'function' && define.amd) {
-		// AMD. Register as an anonymous module.
-		define(['jquery'], factory);
-	} else if (typeof exports === 'object') {
-		// Node. Does not work with strict CommonJS, but
-		// only CommonJS-like environments that support module.exports,
-		// like Node.
-		module.exports = factory(require('jquery'));
-	} else {
-		// Browser globals (root is window)
-		root.Swiper = factory(root.jQuery);
-	}
-}(this, function ($) {
-	'use strict';
+        /*===========================
+        Swiper 主插件开始
+        ===========================*/
+        
+        var Swiper = function (container, params) {
+            if (!(this instanceof Swiper)) return new Swiper(container, params);
+        
 
-    /*===========================
-    Swiper
-    ===========================*/
-    var Swiper = function (container, params) {
-        if (!(this instanceof Swiper)) return new Swiper(container, params);
-    
-
+        // 核心代码
+        
         var defaults = {
             direction: 'horizontal',
             touchEventsTarget: 'container',
             initialSlide: 0,
             speed: 300,
-            // autoplay
+            // 自动播放
             autoplay: false,
             autoplayDisableOnInteraction: true,
             autoplayStopOnLast: false,
-            // To support iOS's swipe-to-go-back gesture (when being used in-app, with UIWebView).
+            // 支持 iOS's swipe-to-go-back 手势 (当在应用内使用时和 UIWebView).
             iOSEdgeSwipeDetection: false,
             iOSEdgeSwipeThreshold: 20,
-            // Free mode
+            // 自由模式
             freeMode: false,
             freeModeMomentum: true,
             freeModeMomentumRatio: 1,
@@ -58,13 +62,13 @@
             freeModeMomentumVelocityRatio: 1,
             freeModeSticky: false,
             freeModeMinimumVelocity: 0.02,
-            // Autoheight
+            // 自动高
             autoHeight: false,
-            // Set wrapper width
+            // 设置容器宽度
             setWrapperSize: false,
             // Virtual Translate
             virtualTranslate: false,
-            // Effects
+            // 效果
             effect: 'slide', // 'slide' or 'fade' or 'cube' or 'coverflow' or 'flip'
             coverflow: {
                 rotate: 50,
@@ -86,19 +90,19 @@
             fade: {
                 crossFade: false
             },
-            // Parallax
+            // 视觉差
             parallax: false,
-            // Zoom
+            // Zoom 画廊
             zoom: false,
             zoomMax: 3,
             zoomMin: 1,
             zoomToggle: true,
-            // Scrollbar
+            // 滚动条
             scrollbar: null,
             scrollbarHide: true,
             scrollbarDraggable: false,
             scrollbarSnapOnRelease: false,
-            // Keyboard Mousewheel
+            // 键盘鼠标
             keyboardControl: false,
             mousewheelControl: false,
             mousewheelReleaseOnEdges: false,
@@ -106,16 +110,16 @@
             mousewheelForceToAxis: false,
             mousewheelSensitivity: 1,
             mousewheelEventsTarged: 'container',
-            // Hash Navigation
+            // 导航
             hashnav: false,
             hashnavWatchState: false,
-            // History
+            // 历史
             history: false,
-            // Commong Nav State
+            // Commong 导航状态
             replaceState: false,
             // Breakpoints
             breakpoints: undefined,
-            // Slides grid
+            // 网格
             spaceBetween: 0,
             slidesPerView: 1,
             slidesPerColumn: 1,
@@ -126,7 +130,7 @@
             slidesOffsetAfter: 0, // in px
             // Round length
             roundLengths: false,
-            // Touches
+            // 触摸
             touchRatio: 1,
             touchAngle: 45,
             simulateTouch: true,
@@ -141,7 +145,7 @@
             touchReleaseOnEdges: false,
             // Unique Navigation Elements
             uniqueNavElements: true,
-            // Pagination
+            // 圆点标记
             pagination: null,
             paginationElement: 'span',
             paginationClickable: false,
@@ -154,7 +158,7 @@
             // Resistance
             resistance: true,
             resistanceRatio: 0.85,
-            // Next/prev buttons
+            // 左右指示按钮
             nextButton: null,
             prevButton: null,
             // Progress
@@ -171,14 +175,14 @@
             lazyLoadingInPrevNext: false,
             lazyLoadingInPrevNextAmount: 1,
             lazyLoadingOnTransitionStart: false,
-            // Images
+            // 图片
             preloadImages: true,
             updateOnImagesReady: true,
-            // loop
+            // 循环
             loop: false,
             loopAdditionalSlides: 0,
             loopedSlides: null,
-            // Control
+            // 控制
             control: undefined,
             controlInverse: false,
             controlBy: 'slide', //or 'container'
@@ -302,7 +306,7 @@
         // Classname
         s.classNames = [];
         /*=========================
-          Dom Library and plugins
+          Dom 库和插件
           ===========================*/
         if (typeof $ !== 'undefined' && typeof Dom7 !== 'undefined'){
             $ = Dom7;
@@ -458,7 +462,7 @@
             }
             s.paginationContainer.addClass(s.params.paginationModifierClass + s.params.paginationType);
         }
-        // Next/Prev Buttons
+        // 左右按钮
         if (s.params.nextButton || s.params.prevButton) {
             if (s.params.nextButton) {
                 s.nextButton = $(s.params.nextButton);
@@ -2520,7 +2524,7 @@
         
 
         /*=========================
-          Effects
+          效果
           ===========================*/
         s.effects = {
             fade: {
@@ -2798,7 +2802,7 @@
         
 
         /*=========================
-          Images Lazy Loading
+          图片延迟加载
           ===========================*/
         s.lazy = {
             initialImageLoaded: false,
@@ -2925,7 +2929,7 @@
         
 
         /*=========================
-          Scrollbar
+          滚动条
           ===========================*/
         s.scrollbar = {
             isTouched: false,
@@ -3112,7 +3116,7 @@
         
 
         /*=========================
-          Controller
+         控制器
           ===========================*/
         s.controller = {
             LinearSpline: function (x, y) {
@@ -3229,7 +3233,7 @@
         
 
         /*=========================
-          Hash Navigation
+          导航
           ===========================*/
         s.hashnav = {
             onHashCange: function (e, a) {
@@ -3277,7 +3281,7 @@
         
 
         /*=========================
-          History Api with fallback to Hashnav
+          历史 Api 和 撤销
           ===========================*/
         s.history = {
             init: function () {
@@ -3345,7 +3349,7 @@
         
 
         /*=========================
-          Keyboard Control
+          键盘控制器
           ===========================*/
         function handleKeyboard(e) {
             if (e.originalEvent) e = e.originalEvent; //jquery fix
@@ -3424,7 +3428,7 @@
         
 
         /*=========================
-          Mousewheel Control
+          鼠标控制器
           ===========================*/
         s.mousewheel = {
             event: false,
@@ -3739,7 +3743,7 @@
         
 
         /*=========================
-          Parallax
+          视觉差
           ===========================*/
         function setParallaxTransform(el, progress) {
             el = $(el);
@@ -3806,7 +3810,7 @@
         
 
         /*=========================
-          Zoom
+          Zoom 画廊
           ===========================*/
         s.zoom = {
             // "Global" Props
@@ -4170,7 +4174,7 @@
         
 
         /*=========================
-          Plugins API. Collect all and init all plugins
+          加入所有插件
           ===========================*/
         s._plugins = [];
         for (var plugin in s.plugins) {
@@ -4188,7 +4192,7 @@
         
 
         /*=========================
-          Events/Callbacks/Plugins Emitter
+          事件/回调/插件
           ===========================*/
         function normalizeEventName (eventName) {
             if (eventName.indexOf('on') !== 0) {
@@ -4250,7 +4254,7 @@
         };
         
 
-        // Accessibility tools
+        // 协助工具
         s.a11y = {
             makeFocusable: function ($el) {
                 $el.attr('tabIndex', '0');
@@ -4341,7 +4345,7 @@
         
 
         /*=========================
-          Init/Destroy
+          初始化/删除
           ===========================*/
         s.init = function () {
             if (s.params.loop) s.createLoop();
@@ -4497,181 +4501,182 @@
         s.init();
         
 
-    
-        // Return swiper instance
-        return s;
-    };
-    
-
-    /*==================================================
-        Prototype
-    ====================================================*/
-    Swiper.prototype = {
-        isSafari: (function () {
-            var ua = window.navigator.userAgent.toLowerCase();
-            return (ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0);
-        })(),
-        isUiWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window.navigator.userAgent),
-        isArray: function (arr) {
-            return Object.prototype.toString.apply(arr) === '[object Array]';
-        },
-        /*==================================================
-        Browser
-        ====================================================*/
-        browser: {
-            ie: window.navigator.pointerEnabled || window.navigator.msPointerEnabled,
-            ieTouch: (window.navigator.msPointerEnabled && window.navigator.msMaxTouchPoints > 1) || (window.navigator.pointerEnabled && window.navigator.maxTouchPoints > 1),
-            lteIE9: (function() {
-                // create temporary DIV
-                var div = document.createElement('div');
-                // add content to tmp DIV which is wrapped into the IE HTML conditional statement
-                div.innerHTML = '<!--[if lte IE 9]><i></i><![endif]-->';
-                // return true / false value based on what will browser render
-                return div.getElementsByTagName('i').length === 1;
-            })()
-        },
-        /*==================================================
-        Devices
-        ====================================================*/
-        device: (function () {
-            var ua = window.navigator.userAgent;
-            var android = ua.match(/(Android);?[\s\/]+([\d.]+)?/);
-            var ipad = ua.match(/(iPad).*OS\s([\d_]+)/);
-            var ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/);
-            var iphone = !ipad && ua.match(/(iPhone\sOS|iOS)\s([\d_]+)/);
-            return {
-                ios: ipad || iphone || ipod,
-                android: android
-            };
-        })(),
-        /*==================================================
-        Feature Detection
-        ====================================================*/
-        support: {
-            touch : (window.Modernizr && Modernizr.touch === true) || (function () {
-                return !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
-            })(),
-    
-            transforms3d : (window.Modernizr && Modernizr.csstransforms3d === true) || (function () {
-                var div = document.createElement('div').style;
-                return ('webkitPerspective' in div || 'MozPerspective' in div || 'OPerspective' in div || 'MsPerspective' in div || 'perspective' in div);
-            })(),
-    
-            flexbox: (function () {
-                var div = document.createElement('div').style;
-                var styles = ('alignItems webkitAlignItems webkitBoxAlign msFlexAlign mozBoxAlign webkitFlexDirection msFlexDirection mozBoxDirection mozBoxOrient webkitBoxDirection webkitBoxOrient').split(' ');
-                for (var i = 0; i < styles.length; i++) {
-                    if (styles[i] in div) return true;
-                }
-            })(),
-    
-            observer: (function () {
-                return ('MutationObserver' in window || 'WebkitMutationObserver' in window);
-            })(),
-    
-            passiveListener: (function () {
-                var supportsPassive = false;
-                try {
-                    var opts = Object.defineProperty({}, 'passive', {
-                        get: function() {
-                            supportsPassive = true;
-                        }
-                    });
-                    window.addEventListener('testPassiveListener', null, opts);
-                } catch (e) {}
-                return supportsPassive;
-            })(),
-    
-            gestures: (function () {
-                return 'ongesturestart' in window;
-            })()
-        },
-        /*==================================================
-        Plugins
-        ====================================================*/
-        plugins: {}
-    };
-    
-
-    /*===========================
-     Get jQuery
-     ===========================*/
-    addLibraryPlugin($);
-    
-    var domLib = $;
-    
-
-    /*===========================
-    Add .swiper plugin from Dom libraries
-    ===========================*/
-    function addLibraryPlugin(lib) {
-        lib.fn.swiper = function (params) {
-            var firstInstance;
-            lib(this).each(function () {
-                var s = new Swiper(this, params);
-                if (!firstInstance) firstInstance = s;
-            });
-            return firstInstance;
+        
+            // 返回 swiper 例子
+            return s;
         };
-    }
-    
-    if (domLib) {
-        if (!('transitionEnd' in domLib.fn)) {
-            domLib.fn.transitionEnd = function (callback) {
-                var events = ['webkitTransitionEnd', 'transitionend', 'oTransitionEnd', 'MSTransitionEnd', 'msTransitionEnd'],
-                    i, j, dom = this;
-                function fireCallBack(e) {
-                    /*jshint validthis:true */
-                    if (e.target !== this) return;
-                    callback.call(this, e);
-                    for (i = 0; i < events.length; i++) {
-                        dom.off(events[i], fireCallBack);
-                    }
-                }
-                if (callback) {
-                    for (i = 0; i < events.length; i++) {
-                        dom.on(events[i], fireCallBack);
-                    }
-                }
-                return this;
-            };
-        }
-        if (!('transform' in domLib.fn)) {
-            domLib.fn.transform = function (transform) {
-                for (var i = 0; i < this.length; i++) {
-                    var elStyle = this[i].style;
-                    elStyle.webkitTransform = elStyle.MsTransform = elStyle.msTransform = elStyle.MozTransform = elStyle.OTransform = elStyle.transform = transform;
-                }
-                return this;
-            };
-        }
-        if (!('transition' in domLib.fn)) {
-            domLib.fn.transition = function (duration) {
-                if (typeof duration !== 'string') {
-                    duration = duration + 'ms';
-                }
-                for (var i = 0; i < this.length; i++) {
-                    var elStyle = this[i].style;
-                    elStyle.webkitTransitionDuration = elStyle.MsTransitionDuration = elStyle.msTransitionDuration = elStyle.MozTransitionDuration = elStyle.OTransitionDuration = elStyle.transitionDuration = duration;
-                }
-                return this;
-            };
-        }
-        if (!('outerWidth' in domLib.fn)) {
-            domLib.fn.outerWidth = function (includeMargins) {
-                if (this.length > 0) {
-                    if (includeMargins)
-                        return this[0].offsetWidth + parseFloat(this.css('margin-right')) + parseFloat(this.css('margin-left'));
-                    else
-                        return this[0].offsetWidth;
-                }
-                else return null;
-            };
-        }
-    }
-    
+        
 
-	return Swiper;
-}));
+        /*==================================================
+            原形
+        ====================================================*/
+        Swiper.prototype = {
+            isSafari: (function () {
+                var ua = window.navigator.userAgent.toLowerCase();
+                return (ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0);
+            })(),
+            isUiWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window.navigator.userAgent),
+            isArray: function (arr) {
+                return Object.prototype.toString.apply(arr) === '[object Array]';
+            },
+            /*==================================================
+            浏览器
+            ====================================================*/
+            browser: {
+                ie: window.navigator.pointerEnabled || window.navigator.msPointerEnabled,
+                ieTouch: (window.navigator.msPointerEnabled && window.navigator.msMaxTouchPoints > 1) || (window.navigator.pointerEnabled && window.navigator.maxTouchPoints > 1),
+                lteIE9: (function() {
+                    // create temporary DIV
+                    var div = document.createElement('div');
+                    // add content to tmp DIV which is wrapped into the IE HTML conditional statement
+                    div.innerHTML = '<!--[if lte IE 9]><i></i><![endif]-->';
+                    // return true / false value based on what will browser render
+                    return div.getElementsByTagName('i').length === 1;
+                })()
+            },
+            /*==================================================
+            Devices
+            ====================================================*/
+            device: (function () {
+                var ua = window.navigator.userAgent;
+                var android = ua.match(/(Android);?[\s\/]+([\d.]+)?/);
+                var ipad = ua.match(/(iPad).*OS\s([\d_]+)/);
+                var ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/);
+                var iphone = !ipad && ua.match(/(iPhone\sOS|iOS)\s([\d_]+)/);
+                return {
+                    ios: ipad || iphone || ipod,
+                    android: android
+                };
+            })(),
+            /*==================================================
+            Feature Detection
+            ====================================================*/
+            support: {
+                touch : (window.Modernizr && Modernizr.touch === true) || (function () {
+                    return !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
+                })(),
+        
+                transforms3d : (window.Modernizr && Modernizr.csstransforms3d === true) || (function () {
+                    var div = document.createElement('div').style;
+                    return ('webkitPerspective' in div || 'MozPerspective' in div || 'OPerspective' in div || 'MsPerspective' in div || 'perspective' in div);
+                })(),
+        
+                flexbox: (function () {
+                    var div = document.createElement('div').style;
+                    var styles = ('alignItems webkitAlignItems webkitBoxAlign msFlexAlign mozBoxAlign webkitFlexDirection msFlexDirection mozBoxDirection mozBoxOrient webkitBoxDirection webkitBoxOrient').split(' ');
+                    for (var i = 0; i < styles.length; i++) {
+                        if (styles[i] in div) return true;
+                    }
+                })(),
+        
+                observer: (function () {
+                    return ('MutationObserver' in window || 'WebkitMutationObserver' in window);
+                })(),
+        
+                passiveListener: (function () {
+                    var supportsPassive = false;
+                    try {
+                        var opts = Object.defineProperty({}, 'passive', {
+                            get: function() {
+                                supportsPassive = true;
+                            }
+                        });
+                        window.addEventListener('testPassiveListener', null, opts);
+                    } catch (e) {}
+                    return supportsPassive;
+                })(),
+        
+                gestures: (function () {
+                    return 'ongesturestart' in window;
+                })()
+            },
+            /*==================================================
+            Plugins
+            ====================================================*/
+            plugins: {}
+        };
+        
+
+        /*===========================
+         得到 jQuery
+         ===========================*/
+        addLibraryPlugin($);
+        
+        var domLib = $;
+        
+
+        /*===========================
+        添加 .swiper 插件从 Dom 库
+        ===========================*/
+        function addLibraryPlugin(lib) {
+            lib.fn.swiper = function (params) {
+                var firstInstance;
+                lib(this).each(function () {
+                    var s = new Swiper(this, params);
+                    if (!firstInstance) firstInstance = s;
+                });
+                return firstInstance;
+            };
+        }
+        
+        if (domLib) {
+            if (!('transitionEnd' in domLib.fn)) {
+                domLib.fn.transitionEnd = function (callback) {
+                    var events = ['webkitTransitionEnd', 'transitionend', 'oTransitionEnd', 'MSTransitionEnd', 'msTransitionEnd'],
+                        i, j, dom = this;
+                    function fireCallBack(e) {
+                        /*jshint validthis:true */
+                        if (e.target !== this) return;
+                        callback.call(this, e);
+                        for (i = 0; i < events.length; i++) {
+                            dom.off(events[i], fireCallBack);
+                        }
+                    }
+                    if (callback) {
+                        for (i = 0; i < events.length; i++) {
+                            dom.on(events[i], fireCallBack);
+                        }
+                    }
+                    return this;
+                };
+            }
+            if (!('transform' in domLib.fn)) {
+                domLib.fn.transform = function (transform) {
+                    for (var i = 0; i < this.length; i++) {
+                        var elStyle = this[i].style;
+                        elStyle.webkitTransform = elStyle.MsTransform = elStyle.msTransform = elStyle.MozTransform = elStyle.OTransform = elStyle.transform = transform;
+                    }
+                    return this;
+                };
+            }
+            if (!('transition' in domLib.fn)) {
+                domLib.fn.transition = function (duration) {
+                    if (typeof duration !== 'string') {
+                        duration = duration + 'ms';
+                    }
+                    for (var i = 0; i < this.length; i++) {
+                        var elStyle = this[i].style;
+                        elStyle.webkitTransitionDuration = elStyle.MsTransitionDuration = elStyle.msTransitionDuration = elStyle.MozTransitionDuration = elStyle.OTransitionDuration = elStyle.transitionDuration = duration;
+                    }
+                    return this;
+                };
+            }
+            if (!('outerWidth' in domLib.fn)) {
+                domLib.fn.outerWidth = function (includeMargins) {
+                    if (this.length > 0) {
+                        if (includeMargins)
+                            return this[0].offsetWidth + parseFloat(this.css('margin-right')) + parseFloat(this.css('margin-left'));
+                        else
+                            return this[0].offsetWidth;
+                    }
+                    else return null;
+                };
+            }
+        }
+        
+
+        	return Swiper;
+        }));
+        
 
 //# sourceMappingURL=maps/swiper.jquery.umd.js.map
